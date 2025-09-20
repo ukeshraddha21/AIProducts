@@ -115,7 +115,7 @@ export const certifications = [
   },
   {
     id: 3,
-    name: "AI for Product Owners (AI-PD)",
+    name: "AI for Product Owners (AI-PO)",
     issuer: "Scrum Alliance",
     description: "Leveraged AI tools for data-driven product decisions and customer insights.",
     date: "2024",
