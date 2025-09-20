@@ -77,7 +77,7 @@ const ProjectsSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className={`group bg-white/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4 border border-blue-100/50 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}
+              className={`group glass-project-card rounded-3xl overflow-hidden shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 transform hover:-translate-y-6 hover:scale-105 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}
               style={{animationDelay: `${index * 0.2}s`}}
             >
               {/* Premium Project Image */}
