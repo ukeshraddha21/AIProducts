@@ -97,10 +97,10 @@ const SkillsSection = () => {
                             {skill.name}
                           </h4>
                         </div>
-                        <span className={`px-4 py-2 rounded-full text-sm font-bold shadow-md ${
-                          skill.level === 'Expert' ? 'bg-green-100 text-green-800 border border-green-200' :
-                          skill.level === 'Advanced' ? 'bg-blue-100 text-blue-800 border border-blue-200' :
-                          'bg-yellow-100 text-yellow-800 border border-yellow-200'
+                        <span className={`px-6 py-3 rounded-2xl text-sm font-bold shadow-lg glass-card hover:scale-110 transition-all duration-300 cursor-pointer ${
+                          skill.level === 'Expert' ? 'text-green-800' :
+                          skill.level === 'Advanced' ? 'text-blue-800' :
+                          'text-yellow-800'
                         }`}>
                           {skill.level}
                         </span>
