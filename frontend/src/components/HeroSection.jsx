@@ -42,11 +42,11 @@ const HeroSection = () => {
         <div className="text-center max-w-5xl mx-auto">
           {/* Main Content */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full mb-8 animate-glow">
-              <Sparkles className="w-5 h-5 text-yellow-300" />
-              <span className="text-white font-medium">Certified Product Owner</span>
-              <TrendingUp className="w-5 h-5 text-green-300" />
+            {/* Premium Glassmorphism Badge */}
+            <div className="inline-flex items-center space-x-2 glass-hero-card px-8 py-4 rounded-full mb-8 animate-glow">
+              <Sparkles className="w-6 h-6 text-yellow-300" />
+              <span className="text-white font-semibold text-lg">Certified Product Owner</span>
+              <TrendingUp className="w-6 h-6 text-green-300" />
             </div>
 
             {/* Main Heading */}
