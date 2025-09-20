@@ -159,7 +159,7 @@ const SkillsSection = () => {
                         {cert.name}
                       </h4>
                       <p className="text-blue-200 font-bold text-sm">{cert.issuer}</p>
-                      <span className="inline-block bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-bold mt-3 border border-white/30">
+                      <span className="inline-block glass-card-dark text-white px-6 py-3 rounded-2xl text-sm font-bold mt-4 shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer">
                         {cert.date}
                       </span>
                     </div>
