@@ -99,10 +99,10 @@ const ProjectsSection = () => {
                 
                 {/* Premium Category Badge */}
                 <div className="absolute top-6 left-6">
-                  <span className={`px-4 py-2 rounded-full text-sm font-bold backdrop-blur-md border ${
+                  <span className={`px-6 py-3 rounded-2xl text-sm font-bold glass-card shadow-lg ${
                     project.category === 'Product Management' 
-                      ? 'bg-blue-100/90 text-blue-800 border-blue-200/50' 
-                      : 'bg-green-100/90 text-green-800 border-green-200/50'
+                      ? 'text-blue-800' 
+                      : 'text-green-800'
                   }`}>
                     {project.category}
                   </span>
