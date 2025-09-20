@@ -107,9 +107,9 @@ const ExperienceSection = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
                 <Building className="w-8 h-8 text-blue-600" />
               </div>
-              <div className="text-2xl font-bold text-slate-800">3+</div>
+              <div className="text-2xl font-bold text-slate-800">2</div>
               <div className="text-slate-600">Companies</div>
-              <div className="text-sm text-slate-500">From startups to enterprise</div>
+              <div className="text-sm text-slate-500">Product & service based</div>
             </div>
             
             <div className="text-center space-y-3">
