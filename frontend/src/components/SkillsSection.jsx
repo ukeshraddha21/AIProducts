@@ -196,7 +196,7 @@ const SkillsSection = () => {
               ].map((stat, index) => (
                 <div 
                   key={index}
-                  className="group space-y-4 p-6 rounded-2xl hover:bg-blue-50 transition-all duration-300 transform hover:scale-105"
+                  className="group space-y-6 p-8 glass-card rounded-3xl hover:scale-110 transition-all duration-500 transform shadow-lg hover:shadow-xl cursor-pointer"
                 >
                   <div className="text-5xl">{stat.icon}</div>
                   <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
