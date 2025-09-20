@@ -114,7 +114,7 @@ const AboutSection = () => {
             {highlights.map((highlight, index) => (
               <div 
                 key={index}
-                className="group relative bg-white/80 backdrop-blur-md p-8 rounded-3xl hover:bg-white transition-all duration-500 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 border border-blue-100/50 overflow-hidden"
+                className="group relative glass-card-white p-10 rounded-3xl hover:scale-105 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:-translate-y-3 overflow-hidden"
               >
                 {/* Gradient Background on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
