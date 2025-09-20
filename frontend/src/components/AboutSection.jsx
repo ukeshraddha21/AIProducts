@@ -148,7 +148,7 @@ const AboutSection = () => {
               {['B2B SaaS', 'Investment Banking', 'Insurance', 'Product Analytics', 'Agile Delivery', 'Process Optimization'].map((domain, index) => (
                 <span 
                   key={index}
-                  className="px-6 py-3 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full font-semibold hover:from-blue-200 hover:to-blue-300 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg border border-blue-200/50"
+                  className="glass-card px-8 py-4 text-blue-800 rounded-full font-bold hover:scale-110 transition-all duration-300 transform shadow-lg hover:shadow-xl cursor-pointer"
                   style={{animationDelay: `${index * 0.1}s`}}
                 >
                   {domain}
