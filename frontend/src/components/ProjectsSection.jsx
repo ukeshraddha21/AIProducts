@@ -129,7 +129,7 @@ const ProjectsSection = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-4 py-2 bg-gradient-to-r from-blue-50 to-blue-100 text-blue-800 rounded-full text-sm font-semibold border border-blue-200/50 hover:from-blue-100 hover:to-blue-200 transition-all duration-300"
+                      className="px-5 py-3 glass-card text-blue-800 rounded-full text-sm font-bold hover:scale-110 transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
                     >
                       {tech}
                     </span>
