@@ -157,7 +157,7 @@ const ProjectsSection = () => {
                   
                   <button
                     onClick={() => alert('GitHub link will be implemented with backend')}
-                    className="flex items-center space-x-3 bg-white/90 backdrop-blur-md border-2 border-blue-200 text-blue-700 py-4 px-6 rounded-2xl hover:border-blue-600 hover:text-blue-900 hover:bg-blue-50 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="flex items-center space-x-3 glass-button border-2 border-blue-300/50 text-blue-700 py-4 px-6 rounded-2xl hover:border-blue-600 hover:text-blue-900 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:scale-110"
                   >
                     <Github size={18} />
                     <span>Code</span>
