@@ -139,9 +139,9 @@ const AboutSection = () => {
 
         {/* Premium Domain Expertise */}
         <div className={`mt-24 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white/80 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-blue-100/50">
-            <h3 className="text-3xl font-bold text-blue-900 mb-8 text-center flex items-center justify-center">
-              <Sparkles className="w-8 h-8 text-blue-600 mr-3" />
+          <div className="glass-card-white rounded-3xl p-12 shadow-2xl hover:scale-105 transition-all duration-500">
+            <h3 className="text-4xl font-black text-blue-900 mb-10 text-center flex items-center justify-center">
+              <Sparkles className="w-10 h-10 text-blue-600 mr-4" />
               Domain Expertise
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
