@@ -84,7 +84,7 @@ const SkillsSection = () => {
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="group bg-gradient-to-r from-blue-50/50 to-blue-100/50 p-6 rounded-2xl hover:from-blue-100 hover:to-blue-200 transition-all duration-500 cursor-pointer transform hover:scale-105 border border-blue-200/30 hover:border-blue-300/50 shadow-md hover:shadow-lg"
+                      className="group glass-skill-card p-8 rounded-3xl hover:scale-110 transition-all duration-500 cursor-pointer transform shadow-xl hover:shadow-2xl hover:shadow-blue-500/20"
                       onMouseEnter={() => setHoveredSkill(`${categoryIndex}-${skillIndex}`)}
                       onMouseLeave={() => setHoveredSkill(null)}
                     >
