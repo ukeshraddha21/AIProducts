@@ -150,7 +150,7 @@ const SkillsSection = () => {
                 {certifications.map((cert, index) => (
                   <div
                     key={cert.id}
-                    className="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group border border-white/20 hover:border-white/40 hover:bg-white/15"
+                    className="glass-card-dark p-10 rounded-3xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group"
                     style={{animationDelay: `${index * 0.1}s`}}
                   >
                     <div className="text-center mb-6">
