@@ -53,9 +53,9 @@ const ProjectsSection = () => {
 
         {/* Premium Filter Buttons */}
         <div className={`flex flex-wrap justify-center gap-4 mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="flex items-center space-x-3 text-blue-700 mb-4 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-blue-100/50">
+          <div className="flex items-center space-x-3 text-blue-700 mb-4 glass-card-white px-8 py-4 rounded-full shadow-xl">
             <Filter size={20} />
-            <span className="font-semibold">Filter by category:</span>
+            <span className="font-bold">Filter by category:</span>
           </div>
           {categories.map((category) => (
             <button
