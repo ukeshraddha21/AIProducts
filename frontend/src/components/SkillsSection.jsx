@@ -117,7 +117,7 @@ const SkillsSection = () => {
                 </p>
 
                 {/* Special highlight for AI certifications */}
-                {(cert.name.includes('AI') || cert.name.includes('AI-')) && (
+                {(cert.name.includes('AI-PO') || cert.name.includes('AI-SM')) && (
                   <div className="mt-4 flex items-center justify-center">
                     <span className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium flex items-center">
                       <Star size={12} className="mr-1" />
