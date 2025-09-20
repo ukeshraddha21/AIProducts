@@ -186,8 +186,8 @@ const SkillsSection = () => {
 
         {/* Premium Skills Summary */}
         <div className={`mt-20 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white/90 backdrop-blur-md rounded-3xl p-10 shadow-2xl border border-blue-100/50">
-            <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="glass-card-white rounded-3xl p-12 shadow-2xl hover:scale-105 transition-all duration-500">
+            <div className="grid md:grid-cols-4 gap-10 text-center">
               {[
                 { value: '16+', label: 'Technical Skills', icon: '🛠️', color: 'from-blue-600 to-blue-800' },
                 { value: '6', label: 'Professional Certifications', icon: '🏆', color: 'from-green-600 to-green-800' },
