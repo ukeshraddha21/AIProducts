@@ -90,7 +90,7 @@ const SkillsSection = () => {
                     >
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center space-x-4">
-                          <div className="text-3xl p-2 bg-white rounded-xl shadow-md group-hover:shadow-lg transition-shadow">
+                          <div className="text-4xl p-4 glass-card rounded-2xl shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                             {skill.icon}
                           </div>
                           <h4 className="font-bold text-xl text-blue-900 group-hover:text-blue-700 transition-colors">
