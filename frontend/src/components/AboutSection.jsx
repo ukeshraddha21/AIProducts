@@ -83,8 +83,8 @@ const AboutSection = () => {
                 {personalInfo.careerVision}
               </p>
               
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-2xl border-l-4 border-blue-600">
-                <p className="text-blue-800 italic font-medium">
+              <div className="glass-card rounded-2xl p-8 border-l-4 border-blue-600 hover:scale-105 transition-all duration-300">
+                <p className="text-blue-800 italic font-bold text-lg">
                   "Believer in minimalist, outcome-driven delivery and solving the right problems simply and effectively."
                 </p>
               </div>
