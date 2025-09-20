@@ -60,24 +60,24 @@ const HeroSection = () => {
                 {personalInfo.title}
               </h2>
               
-              {/* Contact Info with Premium Icons */}
-              <div className="flex flex-wrap justify-center items-center gap-8 text-blue-100 mb-10">
-                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
-                  <MapPin size={20} className="text-blue-300" />
-                  <span className="font-medium">{personalInfo.location}</span>
+              {/* Premium Glassmorphism Contact Info */}
+              <div className="flex flex-wrap justify-center items-center gap-6 text-blue-100 mb-10">
+                <div className="flex items-center space-x-3 glass-hero-card px-6 py-3 rounded-2xl hover:scale-105 transition-all duration-300">
+                  <MapPin size={20} className="text-blue-200" />
+                  <span className="font-semibold">{personalInfo.location}</span>
                 </div>
-                <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
-                  <Mail size={20} className="text-blue-300" />
-                  <span className="font-medium">{personalInfo.email}</span>
+                <div className="flex items-center space-x-3 glass-hero-card px-6 py-3 rounded-2xl hover:scale-105 transition-all duration-300">
+                  <Mail size={20} className="text-blue-200" />
+                  <span className="font-semibold">{personalInfo.email}</span>
                 </div>
                 <a 
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full hover:bg-white/20 transition-all transform hover:scale-105"
+                  className="flex items-center space-x-3 glass-hero-card px-6 py-3 rounded-2xl hover:scale-110 transition-all duration-300 transform"
                 >
-                  <Linkedin size={20} className="text-blue-300" />
-                  <span className="font-medium">LinkedIn</span>
+                  <Linkedin size={20} className="text-blue-200" />
+                  <span className="font-semibold">LinkedIn</span>
                 </a>
               </div>
             </div>
