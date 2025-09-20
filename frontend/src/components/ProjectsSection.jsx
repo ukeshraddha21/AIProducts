@@ -61,10 +61,10 @@ const ProjectsSection = () => {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-8 py-4 rounded-full font-bold transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl ${
+              className={`px-8 py-4 rounded-full font-bold transition-all duration-500 transform hover:scale-110 shadow-xl hover:shadow-2xl ${
                 filter === category
                   ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-blue-500/25'
-                  : 'bg-white/90 backdrop-blur-md text-blue-700 hover:bg-blue-50 hover:text-blue-900 border border-blue-100/50'
+                  : 'glass-card-white text-blue-700 hover:text-blue-900'
               }`}
             >
               {category}
