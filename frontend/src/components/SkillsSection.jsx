@@ -138,7 +138,7 @@ const SkillsSection = () => {
               <div className="text-slate-600">Technical Skills</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">5</div>
+              <div className="text-3xl font-bold text-green-600">6</div>
               <div className="text-slate-600">Professional Certifications</div>
             </div>
             <div className="space-y-2">
