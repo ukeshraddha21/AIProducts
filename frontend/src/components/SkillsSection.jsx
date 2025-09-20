@@ -116,7 +116,7 @@ const SkillsSection = () => {
                           ></div>
                         </div>
                         {hoveredSkill === `${categoryIndex}-${skillIndex}` && (
-                          <div className="absolute right-0 top-5 bg-blue-900 text-white px-3 py-1 rounded-lg text-sm font-bold shadow-lg">
+                          <div className="absolute right-0 top-6 glass-card-dark text-white px-4 py-2 rounded-2xl text-sm font-bold shadow-xl">
                             {skill.level}
                           </div>
                         )}
