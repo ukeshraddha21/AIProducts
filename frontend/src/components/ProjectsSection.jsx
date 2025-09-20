@@ -137,12 +137,12 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Premium Impact Metric */}
-                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-2xl mb-8 border border-blue-200/50">
-                  <div className="flex items-center space-x-3 text-blue-800 mb-2">
-                    <TrendingUp size={20} />
-                    <span className="font-bold text-lg">Key Impact:</span>
+                <div className="glass-card p-8 rounded-2xl mb-8 hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center space-x-3 text-blue-800 mb-3">
+                    <TrendingUp size={22} />
+                    <span className="font-bold text-xl">Key Impact:</span>
                   </div>
-                  <p className="text-blue-900 font-bold text-xl">{project.impact}</p>
+                  <p className="text-blue-900 font-black text-2xl">{project.impact}</p>
                 </div>
 
                 {/* Premium Action Buttons */}
