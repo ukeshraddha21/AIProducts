@@ -72,10 +72,10 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Career Vision */}
           <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-blue-100/50">
-              <h3 className="text-3xl font-bold text-blue-900 mb-6 flex items-center">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mr-4">
-                  <Target className="w-5 h-5 text-white" />
+            <div className="glass-card-white rounded-3xl p-10 shadow-2xl hover:scale-105 transition-all duration-500">
+              <h3 className="text-3xl font-black text-blue-900 mb-6 flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                  <Target className="w-6 h-6 text-white" />
                 </div>
                 Career Vision
               </h3>
