@@ -99,7 +99,7 @@ const AboutSection = () => {
               ].map((stat, index) => (
                 <div 
                   key={index}
-                  className="bg-white/90 backdrop-blur-md p-6 rounded-2xl text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-blue-100/50"
+                  className="glass-card-white p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-110"
                 >
                   <div className="text-3xl mb-2">{stat.icon}</div>
                   <div className="text-3xl font-black text-blue-900">{stat.value}</div>
