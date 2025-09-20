@@ -115,7 +115,7 @@ const HeroSection = () => {
               </button>
             </div>
 
-            {/* Achievement Stats */}
+            {/* Premium Glassmorphism Achievement Stats */}
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { number: '12+', label: 'Years Experience', icon: '🏆' },
@@ -125,12 +125,12 @@ const HeroSection = () => {
               ].map((stat, index) => (
                 <div 
                   key={index}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-all duration-300 transform hover:scale-105"
+                  className="glass-hero-card rounded-2xl p-8 text-center hover:scale-110 transition-all duration-500 transform"
                   style={{animationDelay: `${index * 0.1}s`}}
                 >
-                  <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-3xl font-bold text-white mb-1">{stat.number}</div>
-                  <div className="text-blue-200 text-sm font-medium">{stat.label}</div>
+                  <div className="text-4xl mb-3">{stat.icon}</div>
+                  <div className="text-3xl font-black text-white mb-2">{stat.number}</div>
+                  <div className="text-blue-100 text-sm font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
