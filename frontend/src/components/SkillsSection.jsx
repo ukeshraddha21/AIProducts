@@ -72,10 +72,10 @@ const SkillsSection = () => {
               className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{animationDelay: `${categoryIndex * 0.2}s`}}
             >
-              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-blue-100/50 hover:shadow-2xl transition-all duration-500">
-                <h3 className="text-3xl font-black text-blue-900 mb-8 flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mr-4">
-                    <ChevronRight className="w-6 h-6 text-white" />
+              <div className="glass-card-white rounded-3xl p-10 shadow-2xl hover:shadow-blue-500/20 hover:scale-105 transition-all duration-500">
+                <h3 className="text-4xl font-black text-blue-900 mb-10 flex items-center">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl flex items-center justify-center mr-5 shadow-xl">
+                    <ChevronRight className="w-7 h-7 text-white" />
                   </div>
                   {category.category}
                 </h3>
