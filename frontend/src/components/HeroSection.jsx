@@ -82,9 +82,9 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Summary with Premium Styling */}
+            {/* Premium Glassmorphism Summary */}
             <div className="mb-12">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 max-w-4xl mx-auto">
+              <div className="glass-hero-card rounded-3xl p-10 max-w-5xl mx-auto hover:scale-105 transition-all duration-500">
                 <p className="text-xl md:text-2xl text-white leading-relaxed font-light">
                   {personalInfo.summary}
                 </p>
