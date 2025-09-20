@@ -136,6 +136,14 @@ export const certifications = [
     description: "Trained in problem-solving, strategic thinking, and agile collaboration.",
     date: "2023",
     badge: "🎯"
+  },
+  {
+    id: 6,
+    name: "Project Management Skills for Leaders",
+    issuer: "LinkedIn",
+    description: "Translated big-picture goals into actions and enhanced leadership capabilities.",
+    date: "2023",
+    badge: "📋"
   }
 ];
 
