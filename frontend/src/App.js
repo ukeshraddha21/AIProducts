@@ -51,7 +51,7 @@ import {
 import { toast } from "sonner";
 import { Toaster } from "./components/ui/sonner";
 
-const API = process.env.REACT_APP_BACKEND_URL || "http://localhost:8001/api";
+const API = `${process.env.REACT_APP_BACKEND_URL}/api` || "http://localhost:8001/api";
 
 // Risk Assessment Dashboard Component
 const Dashboard = () => {
