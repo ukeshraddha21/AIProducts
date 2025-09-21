@@ -830,7 +830,7 @@ const TestResults = ({ storyId }) => {
           <Button 
             onClick={() => navigate('/generator')} 
             variant="outline" 
-            className="flex items-center gap-2 glass hover:glass-hover"
+            className="flex items-center gap-2 hover:bg-slate-50"
           >
             <ChevronLeft className="w-4 h-4" />
             Back to Generator
