@@ -117,18 +117,16 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Card className="border-l-4 border-l-royal-600 shadow-premium hover:shadow-premium-lg transition-all duration-500 bg-ivory-50 cursor-pointer hover:border-royal-400 animate-slide-up">
+              <Card className="border-l-4 border-l-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-base lg:text-lg font-bold text-royal-800 flex items-center gap-3">
-                    <div className="p-2 bg-royal-100 rounded-lg">
-                      <Users className="w-5 h-5 text-royal-700" />
-                    </div>
+                  <CardTitle className="text-base lg:text-lg font-semibold text-slate-700 flex items-center gap-2">
+                    <Users className="w-5 h-5" />
                     User Stories
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl lg:text-4xl font-bold text-royal-900 mb-2">{stats?.total_stories || 0}</div>
-                  <p className="text-sm text-royal-600 font-medium">Stories analyzed with AI</p>
+                  <div className="text-3xl lg:text-4xl font-bold text-slate-800 mb-2">{stats?.total_stories || 0}</div>
+                  <p className="text-sm text-slate-500">Stories analyzed with AI</p>
                 </CardContent>
               </Card>
             </TooltipTrigger>
