@@ -1238,32 +1238,34 @@ const TestResults = ({ storyId }) => {
 // Enhanced Navigation Component
 const Navigation = () => {
   return (
-    <nav className="bg-white border-b border-slate-200 px-6 lg:px-8 py-4 shadow-sm">
+    <nav className="bg-ivory-50 border-b border-ivory-300 px-6 lg:px-8 py-4 shadow-premium backdrop-blur-sm">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-8 lg:space-x-10">
-          <Link to="/" className="flex items-center gap-3 text-xl lg:text-2xl font-bold text-slate-800 hover:text-indigo-600 transition-colors">
-            <Target className="w-7 h-7 lg:w-8 lg:h-8 text-indigo-600" />
+          <Link to="/" className="flex items-center gap-3 text-xl lg:text-2xl font-bold text-royal-900 hover:text-royal-700 transition-colors font-display">
+            <div className="p-2 bg-royal-600 rounded-xl shadow-lg">
+              <Target className="w-5 h-5 lg:w-6 lg:h-6 text-ivory-50" />
+            </div>
             <span className="hidden sm:block">AI StoryTest Generator</span>
             <span className="sm:hidden">AI StoryTest</span>
           </Link>
           <div className="flex space-x-6 lg:space-x-8">
             <Link 
               to="/" 
-              className="flex items-center gap-2 text-sm lg:text-base font-medium text-slate-600 hover:text-slate-900 transition-colors py-2 px-3 rounded-lg hover:bg-slate-50"
+              className="flex items-center gap-2 text-sm lg:text-base font-semibold text-royal-700 hover:text-royal-900 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-royal-100 hover:shadow-md"
             >
               <Home className="w-4 h-4 lg:w-5 lg:h-5" />
               <span className="hidden sm:block">Dashboard</span>
             </Link>
             <Link 
               to="/generator" 
-              className="flex items-center gap-2 text-sm lg:text-base font-medium text-slate-600 hover:text-slate-900 transition-colors py-2 px-3 rounded-lg hover:bg-slate-50"
+              className="flex items-center gap-2 text-sm lg:text-base font-semibold text-royal-700 hover:text-royal-900 transition-all duration-300 py-2 px-4 rounded-xl hover:bg-royal-100 hover:shadow-md"
             >
               <TestTube className="w-4 h-4 lg:w-5 lg:h-5" />
               <span className="hidden sm:block">Generator</span>
             </Link>
           </div>
         </div>
-        <div className="hidden lg:flex items-center gap-2 text-sm text-slate-500">
+        <div className="hidden lg:flex items-center gap-2 text-sm text-royal-600 font-medium">
           <Code className="w-4 h-4" />
           <span>For development teams without dedicated QA</span>
         </div>
