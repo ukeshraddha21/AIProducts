@@ -446,7 +446,7 @@ const TestCaseGenerator = () => {
           </p>
           
           {/* User Story Format Guide */}
-          <Card className="max-w-2xl mx-auto mb-8 bg-blue-50 border-blue-200">
+          <Card className="max-w-2xl mx-auto mb-8 glass-card border-blue-200/30">
             <CardContent className="pt-6">
               <div className="flex items-start gap-3">
                 <Info className="w-5 h-5 text-blue-600 mt-0.5" />
