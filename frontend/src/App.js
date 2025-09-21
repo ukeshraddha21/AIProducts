@@ -623,7 +623,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
                             <Button 
                               onClick={() => generateTestTitles(story.id)}
                               disabled={generatingFor.has(story.id)}
-                              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
+                              className="flex items-center gap-2 glass-button text-white"
                             >
                               <TestTube className="w-4 h-4" />
                               {generatingFor.has(story.id) ? 'Generating...' : 'Generate Test Cases'}
