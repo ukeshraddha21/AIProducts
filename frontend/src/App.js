@@ -44,6 +44,7 @@ import {
   Info,
   ChevronDown,
   ChevronRight,
+  ChevronLeft,
   Lightbulb,
   Users,
   Code
