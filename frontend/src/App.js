@@ -254,7 +254,7 @@ const Dashboard = () => {
 
         {/* Risk Level Breakdown */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          <Card className="shadow-lg bg-white border-l-4 border-l-red-500">
+          <Card className="glass-card border-l-4 border-l-red-500">
             <CardHeader>
               <CardTitle className="text-lg lg:text-xl font-bold text-slate-800 flex items-center gap-2">
                 <AlertTriangle className="w-6 h-6 text-red-600" />
