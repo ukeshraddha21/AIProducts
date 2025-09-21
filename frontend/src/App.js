@@ -441,7 +441,7 @@ const TestCaseGenerator = () => {
             <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">AI StoryTest Generator</h1>
           </div>
           <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Transform user stories into comprehensive test case titles with AI-powered risk assessment
+            Convert user stories into detailed test case enhanced with AI-driven risk evaluation
           </p>
           
           {/* User Story Format Guide */}
