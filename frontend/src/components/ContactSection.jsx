@@ -161,9 +161,15 @@ const ContactSection = () => {
             </h3>
 
             {isSubmitted && (
-              <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg flex items-center space-x-2">
+              <div className="mb-6 p-4 glass-card text-green-800 rounded-2xl flex items-center space-x-2 shadow-lg">
                 <CheckCircle className="w-5 h-5" />
                 <span>Thank you! Your message has been sent successfully.</span>
+              </div>
+            )}
+            
+            {error && (
+              <div className="mb-6 p-4 bg-red-100 text-red-800 rounded-2xl flex items-center space-x-2 shadow-lg">
+                <span>❌ {error}</span>
               </div>
             )}
 
