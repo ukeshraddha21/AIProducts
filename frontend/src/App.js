@@ -986,6 +986,94 @@ const TabularView = () => {
           )}
         </CardContent>
       </Card>
+
+      {/* Test Details Modal */}
+      <Dialog open={!!showTestDetails} onOpenChange={() => setShowTestDetails(null)}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-slate-800">
+              Test Details: {showTestDetails?.test_type?.charAt(0).toUpperCase()}{showTestDetails?.test_type?.slice(1)} Test
+            </DialogTitle>
+            <DialogDescription className="text-base text-slate-600">
+              {showTestDetails?.description}
+            </DialogDescription>
+          </DialogHeader>
+          {showTestDetails && (
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-700">Status</label>
+                  <Badge className={`${getStatusBadgeColor(showTestDetails.status)}`}>
+                    {showTestDetails.status}
+                  </Badge>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-700">Framework</label>
+                  <Badge variant="outline">{showTestDetails.framework}</Badge>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-700">Last Run</label>
+                  <p className="text-sm text-slate-600">
+                    {showTestDetails.last_run 
+                      ? new Date(showTestDetails.last_run).toLocaleString()
+                      : 'Never executed'
+                    }
+                  </p>
+                </div>
+              </div>
+              
+              {showTestDetails.error_message && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <h4 className="font-medium text-red-800 mb-2">Error Message</h4>
+                  <p className="text-sm text-red-700">{showTestDetails.error_message}</p>
+                </div>
+              )}
+              
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-700">Test Code</label>
+                <pre className="bg-slate-50 p-4 rounded-lg overflow-x-auto text-sm border border-slate-200 max-h-96">
+                  <code className="text-slate-700">{showTestDetails.code}</code>
+                </pre>
+              </div>
+              
+              <div className="flex gap-2 pt-4">
+                <Button
+                  onClick={() => executeTestsForStory(showTestDetails.story_id)}
+                  className="bg-indigo-600 hover:bg-indigo-700"
+                >
+                  <Play className="w-4 h-4 mr-2" />
+                  Execute Test
+                </Button>
+                <Button variant="outline" onClick={() => setShowTestDetails(null)}>
+                  Close
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Bulk Actions Bar */}
+      {selectedTests.length > 0 && (
+        <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white border border-slate-200 rounded-lg shadow-lg p-4">
+          <div className="flex items-center gap-4">
+            <span className="text-sm font-medium text-slate-700">
+              {selectedTests.length} tests selected
+            </span>
+            <Button size="sm" variant="outline">
+              <Play className="w-4 h-4 mr-2" />
+              Run Selected
+            </Button>
+            <Button size="sm" variant="outline">
+              <Settings className="w-4 h-4 mr-2" />
+              Bulk Edit
+            </Button>
+            <Button size="sm" variant="outline" onClick={() => setSelectedTests([])}>
+              Clear Selection
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
