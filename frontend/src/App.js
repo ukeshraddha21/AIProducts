@@ -824,7 +824,7 @@ const TestResults = ({ storyId }) => {
 
   return (
     <TooltipProvider>
-      <div className="space-y-8 p-6 lg:p-8 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+      <div className="space-y-8 p-6 lg:p-8 min-h-screen">
         {/* Back Button */}
         <div className="mb-6">
           <Button 
