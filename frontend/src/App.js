@@ -582,61 +582,77 @@ As a user, I want to reset my password when I forget it so that I can regain acc
           </Card>
         )}
 
-        {/* Stories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-          {stories.map((story) => (
+        {/* Stories List */}
+        <div className="max-w-6xl mx-auto space-y-4">
+          {stories.map((story, index) => (
             <Card key={story.id} className="shadow-lg hover:shadow-xl transition-all duration-300 bg-white border-0 group">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg lg:text-xl font-bold text-slate-800 leading-tight mb-3 group-hover:text-indigo-600 transition-colors">
-                  {story.title}
-                </CardTitle>
-                <CardDescription className="text-base text-slate-600 leading-relaxed line-clamp-3">
-                  {story.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex gap-3 flex-wrap">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button 
-                        onClick={() => generateTestTitles(story.id)}
-                        disabled={generatingFor.has(story.id)}
-                        className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 flex-1"
-                      >
-                        <TestTube className="w-4 h-4" />
-                        {generatingFor.has(story.id) ? 'Generating...' : 'Generate Test Cases'}
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Generate 60+ test case titles across 6 categories with risk assessment</p>
-                    </TooltipContent>
-                  </Tooltip>
-                  
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button 
-                        variant="outline" 
-                        onClick={() => window.location.href = `/test-results/${story.id}`}
-                        className="flex items-center gap-2 hover:bg-slate-50"
-                      >
-                        <Eye className="w-4 h-4" />
-                        View Results
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>View generated test cases with sorting and filtering options</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </div>
-                
-                {generatingFor.has(story.id) && (
-                  <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
-                    <div className="flex items-center gap-2 text-blue-800 text-sm">
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-                      <span>AI is generating 60+ test cases across 6 categories...</span>
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  {/* Story Number */}
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                      {index + 1}
                     </div>
                   </div>
-                )}
+                  
+                  {/* Story Content */}
+                  <div className="flex-grow">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                      <div className="flex-grow">
+                        <h3 className="text-lg lg:text-xl font-bold text-slate-800 leading-tight mb-3 group-hover:text-indigo-600 transition-colors">
+                          {story.title}
+                        </h3>
+                        <p className="text-base text-slate-600 leading-relaxed mb-4">
+                          {story.description}
+                        </p>
+                        
+                        {generatingFor.has(story.id) && (
+                          <div className="bg-blue-50 p-3 rounded-lg border border-blue-200 mb-4">
+                            <div className="flex items-center gap-2 text-blue-800 text-sm">
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                              <span>AI is generating 60+ test cases across 6 categories...</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* Action Buttons */}
+                      <div className="flex gap-3 flex-shrink-0">
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button 
+                              onClick={() => generateTestTitles(story.id)}
+                              disabled={generatingFor.has(story.id)}
+                              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
+                            >
+                              <TestTube className="w-4 h-4" />
+                              {generatingFor.has(story.id) ? 'Generating...' : 'Generate Test Cases'}
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Generate 60+ test case titles across 6 categories with risk assessment</p>
+                          </TooltipContent>
+                        </Tooltip>
+                        
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button 
+                              variant="outline" 
+                              onClick={() => window.location.href = `/test-results/${story.id}`}
+                              className="flex items-center gap-2 hover:bg-slate-50"
+                            >
+                              <Eye className="w-4 h-4" />
+                              View Results
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>View generated test cases with sorting and filtering options</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ))}
