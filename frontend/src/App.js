@@ -969,19 +969,10 @@ const TestResults = ({ storyId }) => {
                     </TableHead>
                     <TableHead 
                       className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
-                      onClick={() => handleSort('priority')}
+                      onClick={() => handleSort('defect_likelihood_score')}
                     >
                       <div className="flex items-center justify-center gap-2">
-                        Priority
-                        <ArrowUpDown className="w-4 h-4" />
-                      </div>
-                    </TableHead>
-                    <TableHead 
-                      className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
-                      onClick={() => handleSort('complexity')}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        Complexity
+                        Defect Likelihood
                         <ArrowUpDown className="w-4 h-4" />
                       </div>
                     </TableHead>
@@ -996,10 +987,19 @@ const TestResults = ({ storyId }) => {
                     </TableHead>
                     <TableHead 
                       className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
-                      onClick={() => handleSort('defect_likelihood_score')}
+                      onClick={() => handleSort('complexity')}
                     >
                       <div className="flex items-center justify-center gap-2">
-                        Defect Likelihood
+                        Complexity
+                        <ArrowUpDown className="w-4 h-4" />
+                      </div>
+                    </TableHead>
+                    <TableHead 
+                      className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
+                      onClick={() => handleSort('priority')}
+                    >
+                      <div className="flex items-center justify-center gap-2">
+                        Priority
                         <ArrowUpDown className="w-4 h-4" />
                       </div>
                     </TableHead>
