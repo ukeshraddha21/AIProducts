@@ -503,18 +503,18 @@ const TestCaseGenerator = () => {
             </CardContent>
           </Card>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex gap-6 justify-center mb-12">
             <Button 
-              onClick={() => setShowCreateForm(true)} 
-              className="px-6 lg:px-8 py-3 text-base lg:text-lg font-medium bg-indigo-600 hover:bg-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => setShowCreateForm(true)}
+              className="px-8 py-4 bg-royal-600 hover:bg-royal-700 text-lg font-bold shadow-premium hover:shadow-premium-lg transition-all duration-500 rounded-xl font-display"
             >
               <Plus className="w-5 h-5 mr-2" />
               Create Single Story
             </Button>
             <Button 
-              onClick={() => setShowBatchInput(true)} 
-              variant="outline"
-              className="px-6 lg:px-8 py-3 text-base lg:text-lg font-medium border-indigo-600 text-indigo-600 hover:bg-indigo-50 shadow-lg hover:shadow-xl transition-all duration-300"
+              variant="outline" 
+              onClick={() => setShowBatchInput(true)}
+              className="px-8 py-4 border-2 border-royal-600 text-royal-700 hover:bg-royal-50 text-lg font-bold shadow-premium hover:shadow-premium-lg transition-all duration-500 rounded-xl font-display"
             >
               <FileText className="w-5 h-5 mr-2" />
               Batch Input Stories
