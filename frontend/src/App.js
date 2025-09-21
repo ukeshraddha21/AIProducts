@@ -137,18 +137,16 @@ const Dashboard = () => {
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <Card className="border-l-4 border-l-royal-600 shadow-premium hover:shadow-premium-lg transition-all duration-500 bg-ivory-50 cursor-pointer hover:border-royal-400 animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <Card className="border-l-4 border-l-purple-500 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-base lg:text-lg font-bold text-royal-800 flex items-center gap-3">
-                    <div className="p-2 bg-royal-100 rounded-lg">
-                      <TestTube className="w-5 h-5 text-royal-700" />
-                    </div>
+                  <CardTitle className="text-base lg:text-lg font-semibold text-slate-700 flex items-center gap-2">
+                    <TestTube className="w-5 h-5" />
                     Test Cases Generated
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl lg:text-4xl font-bold text-royal-900 mb-2">{stats?.total_test_titles || 0}</div>
-                  <p className="text-sm text-royal-600 font-medium">AI-generated test titles</p>
+                  <div className="text-3xl lg:text-4xl font-bold text-purple-600 mb-2">{stats?.total_test_titles || 0}</div>
+                  <p className="text-sm text-slate-500">AI-generated test titles</p>
                 </CardContent>
               </Card>
             </TooltipTrigger>
