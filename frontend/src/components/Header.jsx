@@ -22,10 +22,34 @@ const Header = () => {
     { name: "Contact", href: "#contact" }
   ];
 
-  const handleDownloadResume = () => {
-    // Mock download functionality
-    console.log("Downloading resume...");
-    alert("Resume download will be implemented with backend integration");
+  const handleDownloadResume = async () => {
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+      const response = await fetch(`${BACKEND_URL}/api/resume/download`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to download resume');
+      }
+      
+      // Create blob from response
+      const blob = await response.blob();
+      
+      // Create download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Shraddha_Uke_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+      
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      alert('Failed to download resume. Please try again.');
+    }
   };
 
   const scrollToSection = (href) => {
