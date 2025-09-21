@@ -200,10 +200,10 @@ const Dashboard = () => {
 
         {/* Charts Section */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10 mb-12">
-          <Card className="shadow-premium bg-ivory-50 border border-ivory-300 hover:border-royal-200 transition-all duration-300">
+          <Card className="shadow-lg bg-white">
             <CardHeader className="pb-6">
-              <CardTitle className="text-xl lg:text-2xl font-bold text-royal-900 font-display">Risk Distribution</CardTitle>
-              <CardDescription className="text-base text-royal-700 font-medium">
+              <CardTitle className="text-xl lg:text-2xl font-bold text-slate-800">Risk Distribution</CardTitle>
+              <CardDescription className="text-base text-slate-600">
                 Defect likelihood assessment across all test cases
               </CardDescription>
             </CardHeader>
