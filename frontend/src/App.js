@@ -339,7 +339,11 @@ const TestCaseGenerator = () => {
   const fetchStories = async () => {
     try {
       const response = await axios.get(`${API}/stories`);
-      setStories(response.data);
+      // Sort stories by created_at in descending order (newest first)
+      const sortedStories = response.data.sort((a, b) => 
+        new Date(b.created_at) - new Date(a.created_at)
+      );
+      setStories(sortedStories);
     } catch (error) {
       console.error('Error fetching stories:', error);
       toast.error('Failed to load stories');
