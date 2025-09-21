@@ -590,7 +590,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
                 <div className="flex items-start gap-4">
                   {/* Story Number */}
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 glass-button text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       {index + 1}
                     </div>
                   </div>
