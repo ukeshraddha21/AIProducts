@@ -788,7 +788,7 @@ const TabularView = () => {
               <TableHeader>
                 <TableRow className="bg-slate-50">
                   <TableHead 
-                    className="font-bold text-slate-800 cursor-pointer hover:bg-slate-100 sticky left-0 bg-slate-50 z-10 min-w-[200px]"
+                    className="font-bold text-slate-800 cursor-pointer hover:bg-slate-100 sticky left-0 bg-slate-50 z-10 min-w-[250px]"
                     onClick={() => handleSort('title')}
                   >
                     <div className="flex items-center gap-2">
@@ -796,16 +796,37 @@ const TabularView = () => {
                       <ArrowUpDown className="w-4 h-4" />
                     </div>
                   </TableHead>
-                  {testTypes.map(type => (
-                    <TableHead key={type} className="text-center font-bold text-slate-800 min-w-[120px]">
-                      <div className="flex flex-col items-center gap-1">
-                        <span className="capitalize">{type}</span>
-                        <span className="text-xs text-slate-500">Test</span>
-                      </div>
-                    </TableHead>
-                  ))}
+                  {testTypes.map(type => {
+                    const IconComponent = testTypeIcons[type] || Code;
+                    return (
+                      <TableHead key={type} className="text-center font-bold text-slate-800 min-w-[140px]">
+                        <div className="flex flex-col items-center gap-1">
+                          <IconComponent className="w-4 h-4 text-indigo-600" />
+                          <span className="capitalize text-xs">{type}</span>
+                        </div>
+                      </TableHead>
+                    );
+                  })}
                   <TableHead 
-                    className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
+                    className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100 min-w-[100px]"
+                    onClick={() => handleSort('tests')}
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      Tests
+                      <ArrowUpDown className="w-4 h-4" />
+                    </div>
+                  </TableHead>
+                  <TableHead 
+                    className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100 min-w-[100px]"
+                    onClick={() => handleSort('coverage')}
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      Coverage
+                      <ArrowUpDown className="w-4 h-4" />
+                    </div>
+                  </TableHead>
+                  <TableHead 
+                    className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100 min-w-[100px]"
                     onClick={() => handleSort('priority')}
                   >
                     <div className="flex items-center justify-center gap-2">
@@ -814,13 +835,16 @@ const TabularView = () => {
                     </div>
                   </TableHead>
                   <TableHead 
-                    className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
+                    className="text-center font-bold text-slate-800 cursor-pointer hover:bg-slate-100 min-w-[110px]"
                     onClick={() => handleSort('complexity')}
                   >
                     <div className="flex items-center justify-center gap-2">
                       Complexity
                       <ArrowUpDown className="w-4 h-4" />
                     </div>
+                  </TableHead>
+                  <TableHead className="text-center font-bold text-slate-800 min-w-[120px]">
+                    Actions
                   </TableHead>
                 </TableRow>
               </TableHeader>
