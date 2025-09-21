@@ -189,12 +189,12 @@ class ResumeGenerator:
         for cert in certifications:
             cert_title = f"<b>{cert['name']}</b> - {cert['issuer']} ({cert['date']})"
             story.append(Paragraph(cert_title, self.styles['JobTitle']))
-            story.append(Paragraph(cert['description'], self.styles['BodyText']))
+            story.append(Paragraph(cert['description'], self.styles['CustomBodyText']))
             
             # Special highlight for AI certifications
             if 'AI-PO' in cert['name'] or 'AI-SM' in cert['name']:
                 ai_highlight = "<i>★ AI Micro-credential</i>"
-                story.append(Paragraph(ai_highlight, self.styles['BodyText']))
+                story.append(Paragraph(ai_highlight, self.styles['CustomBodyText']))
             
             story.append(Spacer(1, 6))
         
