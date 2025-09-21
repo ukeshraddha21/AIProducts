@@ -102,85 +102,74 @@ class AIStoryTestGeneratorTester:
             200
         )
 
-    def test_parse_story(self):
-        """Test parsing a story with AI"""
+    def test_generate_test_titles(self):
+        """Test generating test case titles for a story with AI"""
         if not self.created_story_id:
             print("❌ Skipped - No story ID available")
             return False, {}
         
-        print("   Note: This test may take 10-30 seconds due to AI processing...")
+        print("   Note: This test may take 30-60 seconds due to AI test case generation...")
         success, response = self.run_test(
-            "Parse Story with AI",
+            "Generate Test Case Titles",
             "POST",
-            f"stories/{self.created_story_id}/parse",
+            f"stories/{self.created_story_id}/generate-test-titles",
             200
         )
         
         if success:
-            # Verify the story was parsed correctly
-            if response.get('parsed') == True:
-                print("   ✅ Story marked as parsed")
-                if response.get('acceptance_criteria'):
-                    print(f"   ✅ Acceptance criteria generated: {len(response['acceptance_criteria'])} items")
-                if response.get('preconditions'):
-                    print(f"   ✅ Preconditions generated: {len(response['preconditions'])} items")
-                if response.get('actions'):
-                    print(f"   ✅ Actions generated: {len(response['actions'])} items")
-                if response.get('expected_outcomes'):
-                    print(f"   ✅ Expected outcomes generated: {len(response['expected_outcomes'])} items")
+            generated_count = response.get('generated_count', 0)
+            categories = response.get('categories', [])
+            test_titles = response.get('test_case_titles', [])
+            
+            print(f"   ✅ Generated {generated_count} test case titles")
+            print(f"   ✅ Categories covered: {', '.join(categories)}")
+            
+            # Verify we have 6 categories (Unit, API, Database, Security, Manual, Automation)
+            expected_categories = ['Unit Tests', 'API Tests', 'Database Tests', 'Security Tests', 'Manual Tests', 'Automation Tests']
+            if len(categories) == 6 and all(cat in expected_categories for cat in categories):
+                print("   ✅ All 6 test categories covered")
             else:
-                print("   ⚠️ Story not marked as parsed")
-        
-        return success, response
-
-    def test_generate_tests(self):
-        """Test generating test cases for a story"""
-        if not self.created_story_id:
-            print("❌ Skipped - No story ID available")
-            return False, {}
-        
-        print("   Note: This test may take 30-60 seconds due to AI test generation...")
-        success, response = self.run_test(
-            "Generate Tests for Story",
-            "POST",
-            f"stories/{self.created_story_id}/generate-tests",
-            200
-        )
-        
-        if success:
-            generated_count = response.get('generated_tests', 0)
-            tests = response.get('tests', [])
-            print(f"   ✅ Generated {generated_count} tests")
+                print(f"   ⚠️ Expected 6 categories, got {len(categories)}")
             
-            # Check test types
-            test_types = [test.get('test_type') for test in tests]
-            print(f"   Test types: {', '.join(test_types)}")
-            
-            # Verify each test has required fields
-            for i, test in enumerate(tests):
-                if all(key in test for key in ['test_type', 'framework', 'code', 'description']):
-                    print(f"   ✅ Test {i+1} ({test['test_type']}) has all required fields")
+            # Verify each test case has required fields and risk assessment
+            for i, test_title in enumerate(test_titles[:5]):  # Check first 5 for brevity
+                required_fields = ['test_case_title', 'priority', 'complexity', 'severity', 'defect_likelihood_score', 'defect_likelihood_color']
+                if all(key in test_title for key in required_fields):
+                    risk_score = test_title['defect_likelihood_score']
+                    risk_color = test_title['defect_likelihood_color']
+                    print(f"   ✅ Test {i+1}: {test_title['test_category']} - Risk: {risk_color} ({risk_score:.2f})")
                 else:
                     print(f"   ⚠️ Test {i+1} missing required fields")
         
         return success, response
 
-    def test_get_story_tests(self):
-        """Test getting tests for a specific story"""
+    def test_get_story_test_titles(self):
+        """Test getting test case titles for a specific story"""
         if not self.created_story_id:
             print("❌ Skipped - No story ID available")
             return False, {}
         
-        return self.run_test(
-            "Get Story Tests",
+        success, response = self.run_test(
+            "Get Story Test Titles",
             "GET",
-            f"stories/{self.created_story_id}/tests",
+            f"stories/{self.created_story_id}/test-titles",
             200
         )
+        
+        if success and isinstance(response, list):
+            print(f"   ✅ Retrieved {len(response)} test case titles")
+            
+            # Verify minimum 10 test cases per category (60 total for 6 categories)
+            if len(response) >= 60:
+                print("   ✅ Minimum 60 test cases generated (10 per category)")
+            else:
+                print(f"   ⚠️ Expected minimum 60 test cases, got {len(response)}")
+        
+        return success, response
 
-    def test_get_all_tests(self):
-        """Test getting all test cases"""
-        return self.run_test("Get All Tests", "GET", "tests", 200)
+    def test_get_all_test_titles(self):
+        """Test getting all test case titles"""
+        return self.run_test("Get All Test Titles", "GET", "test-titles", 200)
 
     def test_dashboard_stats(self):
         """Test getting dashboard statistics"""
