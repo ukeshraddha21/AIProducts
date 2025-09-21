@@ -639,7 +639,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
                             <Button 
                               variant="outline" 
                               onClick={() => window.location.href = `/test-results/${story.id}`}
-                              className="flex items-center gap-2 glass hover:glass-hover"
+                              className="flex items-center gap-2 hover:bg-slate-50"
                             >
                               <Eye className="w-4 h-4" />
                               View Results
