@@ -1246,7 +1246,7 @@ const Navigation = () => {
 // Main App Component
 function App() {
   return (
-    <div className="App min-h-screen bg-ivory-100 font-sans">
+    <div className="App min-h-screen bg-slate-50">
       <BrowserRouter>
         <Navigation />
         <Routes>
