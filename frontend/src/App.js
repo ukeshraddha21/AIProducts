@@ -1033,20 +1033,37 @@ const TestResults = ({ storyId }) => {
                           </div>
                         </TableCell>
                         <TableCell className="text-center">
+                          <div className="flex flex-col items-center gap-1">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Badge className={`${getRiskBadgeColor(title.defect_likelihood_color)} font-medium cursor-help`}>
+                                  {getRiskLabel(title.defect_likelihood_color)}
+                                </Badge>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Risk of production defect if this test is missed</p>
+                              </TooltipContent>
+                            </Tooltip>
+                            <span className="text-xs text-slate-600 font-medium">
+                              {Math.round(title.defect_likelihood_score * 100)}%
+                            </span>
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-center">
                           <Tooltip>
                             <TooltipTrigger asChild>
                               <Badge 
                                 className={`cursor-help ${
-                                  title.priority === 'High' ? 'bg-red-100 text-red-800 border-red-200' :
-                                  title.priority === 'Medium' ? 'bg-amber-100 text-amber-800 border-amber-200' :
+                                  title.severity === 'Critical' ? 'bg-red-100 text-red-800 border-red-200' :
+                                  title.severity === 'Major' ? 'bg-amber-100 text-amber-800 border-amber-200' :
                                   'bg-emerald-100 text-emerald-800 border-emerald-200'
                                 }`}
                               >
-                                {title.priority}
+                                {title.severity}
                               </Badge>
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p>{title.priority} priority test case</p>
+                              <p>{title.severity} severity if defect occurs</p>
                             </TooltipContent>
                           </Tooltip>
                         </TableCell>
@@ -1073,35 +1090,18 @@ const TestResults = ({ storyId }) => {
                             <TooltipTrigger asChild>
                               <Badge 
                                 className={`cursor-help ${
-                                  title.severity === 'Critical' ? 'bg-red-100 text-red-800 border-red-200' :
-                                  title.severity === 'Major' ? 'bg-amber-100 text-amber-800 border-amber-200' :
+                                  title.priority === 'High' ? 'bg-red-100 text-red-800 border-red-200' :
+                                  title.priority === 'Medium' ? 'bg-amber-100 text-amber-800 border-amber-200' :
                                   'bg-emerald-100 text-emerald-800 border-emerald-200'
                                 }`}
                               >
-                                {title.severity}
+                                {title.priority}
                               </Badge>
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p>{title.severity} severity if defect occurs</p>
+                              <p>{title.priority} priority test case</p>
                             </TooltipContent>
                           </Tooltip>
-                        </TableCell>
-                        <TableCell className="text-center">
-                          <div className="flex flex-col items-center gap-1">
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <Badge className={`${getRiskBadgeColor(title.defect_likelihood_color)} font-medium cursor-help`}>
-                                  {getRiskLabel(title.defect_likelihood_color)}
-                                </Badge>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Risk of production defect if this test is missed</p>
-                              </TooltipContent>
-                            </Tooltip>
-                            <span className="text-xs text-slate-600 font-medium">
-                              {Math.round(title.defect_likelihood_score * 100)}%
-                            </span>
-                          </div>
                         </TableCell>
                       </TableRow>
                       
