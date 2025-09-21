@@ -514,7 +514,7 @@ const TestCaseGenerator = () => {
               <div className="flex gap-4 pt-4">
                 <Button 
                   onClick={createStory}
-                  className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700"
+                  className="px-6 py-2 glass-button text-white"
                 >
                   Create Story
                 </Button>
@@ -566,7 +566,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
               <div className="flex gap-4 pt-4">
                 <Button 
                   onClick={createBatchStories}
-                  className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700"
+                  className="px-6 py-2 glass-button text-white"
                 >
                   Create All Stories
                 </Button>
