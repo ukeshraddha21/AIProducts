@@ -869,7 +869,7 @@ const TestResults = ({ storyId }) => {
         </div>
 
         {/* Enhanced Filters */}
-        <Card className="shadow-lg bg-white">
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle className="text-lg lg:text-xl font-bold text-slate-800 flex items-center gap-2">
               <Filter className="w-5 h-5" />
@@ -950,7 +950,7 @@ const TestResults = ({ storyId }) => {
         </Card>
 
         {/* Enhanced Test Cases Table */}
-        <Card className="shadow-lg bg-white">
+        <Card className="glass-card">
           <CardHeader>
             <CardTitle className="text-lg lg:text-xl font-bold text-slate-800">Test Case Titles with Risk Assessment</CardTitle>
             <CardDescription>
