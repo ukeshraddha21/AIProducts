@@ -694,13 +694,14 @@ const TabularView = () => {
         <p className="text-lg text-slate-600">Comprehensive overview of user stories and their test coverage</p>
       </div>
 
-      {/* Filters and Search */}
+      {/* Enhanced Filters and Search */}
       <Card className="shadow-lg bg-white">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-slate-800">Filters & Search</CardTitle>
+          <CardDescription>Filter and search through your user stories and test coverage</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <div className="space-y-2">
               <label className="text-sm font-medium text-slate-700">Search Stories</label>
               <div className="relative">
@@ -745,9 +746,30 @@ const TabularView = () => {
             </div>
 
             <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-700">Test Status</label>
+              <Select value={filterStatus} onValueChange={setFilterStatus}>
+                <SelectTrigger>
+                  <SelectValue placeholder="All Statuses" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Statuses</SelectItem>
+                  <SelectItem value="passed">All Tests Passed</SelectItem>
+                  <SelectItem value="failed">Has Failures</SelectItem>
+                  <SelectItem value="pending">In Progress</SelectItem>
+                  <SelectItem value="no-tests">No Tests</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
               <label className="text-sm font-medium text-slate-700">Results</label>
-              <div className="text-lg font-semibold text-slate-800 py-2">
-                {sortedAndFilteredStories.length} stories
+              <div className="flex flex-col">
+                <div className="text-lg font-semibold text-slate-800">
+                  {sortedAndFilteredStories.length} stories
+                </div>
+                <div className="text-sm text-slate-600">
+                  {allTests.length} total tests
+                </div>
               </div>
             </div>
           </div>
