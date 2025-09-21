@@ -393,7 +393,7 @@ def main():
     
     tester = StoryTestAPITester()
     
-    # Test sequence
+    # Test sequence - Enhanced with new features
     tests = [
         ("Root Endpoint", tester.test_root_endpoint),
         ("Create Story", tester.test_create_story),
@@ -403,8 +403,12 @@ def main():
         ("Generate Tests", tester.test_generate_tests),
         ("Get Story Tests", tester.test_get_story_tests),
         ("Get All Tests", tester.test_get_all_tests),
-        ("Dashboard Stats", tester.test_dashboard_stats),
+        ("Enhanced Dashboard Stats", tester.test_enhanced_dashboard_stats),
         ("Coverage Stats", tester.test_coverage_stats),
+        ("Story Coverage", tester.test_story_coverage),
+        ("Story-Test Mapping", tester.test_story_test_mapping),
+        ("Execute Tests", tester.test_execute_tests),
+        ("Generate Selective Tests", tester.test_generate_selective_tests),
     ]
     
     print(f"\n📋 Running {len(tests)} API tests...")
