@@ -201,7 +201,7 @@ const Dashboard = () => {
 
         {/* Charts Section */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10 mb-12">
-          <Card className="glass-card">
+          <Card className="shadow-lg bg-white">
             <CardHeader className="pb-6">
               <CardTitle className="text-xl lg:text-2xl font-bold text-slate-800">Risk Distribution</CardTitle>
               <CardDescription className="text-base text-slate-600">
@@ -231,7 +231,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="glass-card">
+          <Card className="shadow-lg bg-white">
             <CardHeader className="pb-6">
               <CardTitle className="text-xl lg:text-2xl font-bold text-slate-800">Test Category Coverage</CardTitle>
               <CardDescription className="text-base text-slate-600">
