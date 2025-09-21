@@ -210,10 +210,12 @@ const Dashboard = () => {
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <Card className="border-l-4 border-l-orange-500 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer">
+              <Card className="border-l-4 border-l-orange-500 shadow-premium hover:shadow-premium-lg transition-all duration-500 bg-ivory-50 cursor-pointer hover:border-orange-400 animate-slide-up" style={{animationDelay: '0.3s'}}>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-base lg:text-lg font-semibold text-slate-700 flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5" />
+                  <CardTitle className="text-base lg:text-lg font-bold text-royal-800 flex items-center gap-3">
+                    <div className="p-2 bg-orange-100 rounded-lg">
+                      <TrendingUp className="w-5 h-5 text-orange-700" />
+                    </div>
                     Avg Defect Risk
                   </CardTitle>
                 </CardHeader>
@@ -221,7 +223,7 @@ const Dashboard = () => {
                   <div className="text-3xl lg:text-4xl font-bold text-orange-600 mb-2">
                     {Math.round((stats?.average_defect_likelihood || 0) * 100)}%
                   </div>
-                  <p className="text-sm text-slate-500">Average defect likelihood</p>
+                  <p className="text-sm text-royal-600 font-medium">Average defect likelihood</p>
                 </CardContent>
               </Card>
             </TooltipTrigger>
