@@ -439,18 +439,37 @@ const Dashboard = () => {
   );
 };
 
-// Comprehensive Tabular View Component
+// Enhanced Comprehensive Tabular View Component
 const TabularView = () => {
   const [stories, setStories] = useState([]);
+  const [allTests, setAllTests] = useState([]);
   const [testData, setTestData] = useState({});
   const [loading, setLoading] = useState(true);
   const [sortField, setSortField] = useState('title');
   const [sortDirection, setSortDirection] = useState('asc');
   const [filterPriority, setFilterPriority] = useState('all');
   const [filterComplexity, setFilterComplexity] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedTests, setSelectedTests] = useState([]);
+  const [showTestDetails, setShowTestDetails] = useState(null);
 
   const testTypes = ['unit', 'api', 'ui', 'security', 'performance', 'manual', 'database'];
+
+  // Create consistent priority/complexity mapping based on story ID hash
+  const getPriority = (story) => {
+    const priorities = ['High', 'Medium', 'Low'];
+    const hash = story.id.split('-')[0];
+    const index = parseInt(hash.substring(0, 2), 16) % 3;
+    return priorities[index];
+  };
+
+  const getComplexity = (story) => {
+    const complexities = ['Simple', 'Moderate', 'Complex'];
+    const hash = story.id.split('-')[1] || story.id.split('-')[0];
+    const index = parseInt(hash.substring(0, 2), 16) % 3;
+    return complexities[index];
+  };
 
   useEffect(() => {
     fetchTabularData();
@@ -458,18 +477,38 @@ const TabularView = () => {
 
   const fetchTabularData = async () => {
     try {
-      const [storiesResponse, mappingResponse] = await Promise.all([
+      const [storiesResponse, mappingResponse, testsResponse] = await Promise.all([
         axios.get(`${API}/stories`),
-        axios.get(`${API}/story-test-mapping`)
+        axios.get(`${API}/story-test-mapping`),
+        axios.get(`${API}/tests`)
       ]);
 
       setStories(storiesResponse.data);
+      setAllTests(testsResponse.data);
       
       // Transform mapping data for easier access
       const testDataMap = {};
       mappingResponse.data.mapping.forEach(mapping => {
-        testDataMap[mapping.story_id] = mapping.test_types;
+        testDataMap[mapping.story_id] = {
+          ...mapping.test_types,
+          total_tests: mapping.total_tests,
+          passed_tests: mapping.passed_tests,
+          failed_tests: mapping.failed_tests,
+          coverage_percentage: mapping.coverage_percentage
+        };
       });
+      
+      // Also add individual test details
+      testsResponse.data.forEach(test => {
+        if (!testDataMap[test.story_id]) {
+          testDataMap[test.story_id] = {};
+        }
+        if (!testDataMap[test.story_id].tests) {
+          testDataMap[test.story_id].tests = {};
+        }
+        testDataMap[test.story_id].tests[test.test_type] = test;
+      });
+      
       setTestData(testDataMap);
     } catch (error) {
       console.error('Error fetching tabular data:', error);
@@ -477,17 +516,6 @@ const TabularView = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  // Mock priority and complexity for demo
-  const getPriority = (story) => {
-    const priorities = ['High', 'Medium', 'Low'];
-    return priorities[Math.floor(Math.random() * priorities.length)];
-  };
-
-  const getComplexity = (story) => {
-    const complexities = ['Simple', 'Moderate', 'Complex'];
-    return complexities[Math.floor(Math.random() * complexities.length)];
   };
 
   const getPriorityColor = (priority) => {
@@ -509,15 +537,68 @@ const TabularView = () => {
   };
 
   const getTestStatus = (storyId, testType) => {
-    const tests = testData[storyId];
-    if (!tests || !tests[testType]) {
-      return { status: 'missing', description: 'NA' };
+    const storyData = testData[storyId];
+    if (!storyData) {
+      return { status: 'missing', description: 'No tests', count: 0, details: null };
     }
     
-    return {
-      status: tests[testType],
-      description: `${testType} test implemented`
-    };
+    // Check if we have this test type
+    if (storyData[testType]) {
+      const status = storyData[testType];
+      const testDetails = storyData.tests && storyData.tests[testType];
+      return {
+        status: status,
+        description: testDetails ? testDetails.description : `${testType} test`,
+        count: 1,
+        details: testDetails
+      };
+    }
+    
+    return { status: 'missing', description: 'Not implemented', count: 0, details: null };
+  };
+
+  const getOverallStatus = (storyId) => {
+    const storyData = testData[storyId];
+    if (!storyData || !storyData.total_tests || storyData.total_tests === 0) {
+      return 'no-tests';
+    }
+    
+    if (storyData.failed_tests > 0) return 'has-failures';
+    if (storyData.passed_tests === storyData.total_tests) return 'all-passed';
+    return 'in-progress';
+  };
+
+  const executeTestsForStory = async (storyId) => {
+    const storyData = testData[storyId];
+    if (!storyData || !storyData.tests) {
+      toast.error('No tests found for this story');
+      return;
+    }
+
+    const testIds = Object.values(storyData.tests).map(test => test.id);
+    try {
+      toast.info('Executing tests...');
+      await axios.post(`${API}/tests/execute`, { test_ids: testIds });
+      toast.success('Tests executed successfully');
+      fetchTabularData(); // Refresh data
+    } catch (error) {
+      console.error('Error executing tests:', error);
+      toast.error('Failed to execute tests');
+    }
+  };
+
+  const generateTestsForStory = async (storyId, testTypes) => {
+    try {
+      toast.info('Generating tests...');
+      await axios.post(`${API}/stories/${storyId}/generate-tests`, {
+        test_types: testTypes
+      });
+      toast.success('Tests generated successfully');
+      fetchTabularData(); // Refresh data
+    } catch (error) {
+      console.error('Error generating tests:', error);
+      toast.error('Failed to generate tests');
+    }
   };
 
   const getStatusIcon = (status) => {
