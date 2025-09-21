@@ -7,40 +7,12 @@ module.exports = {
   ],
   theme: {
         extend: {
-                fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Inter', 'system-ui', 'sans-serif'],
-                },
                 borderRadius: {
                         lg: 'var(--radius)',
                         md: 'calc(var(--radius) - 2px)',
                         sm: 'calc(var(--radius) - 4px)'
                 },
                 colors: {
-                        royal: {
-                                50: '#f0f4ff',
-                                100: '#e0e7ff',
-                                200: '#c7d2fe',
-                                300: '#a5b4fc',
-                                400: '#818cf8',
-                                500: '#6366f1',
-                                600: '#4169E1',
-                                700: '#3730a3',
-                                800: '#312e81',
-                                900: '#1e1b4b',
-                        },
-                        ivory: {
-                                50: '#FFFFF0',
-                                100: '#FFFEF7',
-                                200: '#FFFDF0',
-                                300: '#FFFBE8',
-                                400: '#FFF9E1',
-                                500: '#FFF8DC',
-                                600: '#F5F5DC',
-                                700: '#F0F0C8',
-                                800: '#EBEBC0',
-                                900: '#E6E6B8',
-                        },
                         background: 'hsl(var(--background))',
                         foreground: 'hsl(var(--foreground))',
                         card: {
