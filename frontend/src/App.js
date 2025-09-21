@@ -669,7 +669,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
               <div className="flex gap-4 justify-center">
                 <Button 
                   onClick={() => setShowCreateForm(true)}
-                  className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700"
+                  className="px-8 py-3 glass-button text-white"
                 >
                   Create Your First Story
                 </Button>
