@@ -585,7 +585,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
         {/* Stories List */}
         <div className="max-w-6xl mx-auto space-y-4">
           {stories.map((story, index) => (
-            <Card key={story.id} className="shadow-lg hover:shadow-xl transition-all duration-300 bg-white border-0 group">
+            <Card key={story.id} className="glass-card hover:shadow-xl transition-all duration-300 border-0 group">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   {/* Story Number */}
