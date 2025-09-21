@@ -230,21 +230,21 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="shadow-premium bg-ivory-50 border border-ivory-300 hover:border-royal-200 transition-all duration-300">
+          <Card className="shadow-lg bg-white">
             <CardHeader className="pb-6">
-              <CardTitle className="text-xl lg:text-2xl font-bold text-royal-900 font-display">Test Category Coverage</CardTitle>
-              <CardDescription className="text-base text-royal-700 font-medium">
+              <CardTitle className="text-xl lg:text-2xl font-bold text-slate-800">Test Category Coverage</CardTitle>
+              <CardDescription className="text-base text-slate-600">
                 Distribution across Unit, API, Database, Security, Manual, and Automation tests
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={categoryData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#E6E6B8" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{fill: '#3730a3', fontSize: 12}} />
-                  <YAxis tick={{fill: '#3730a3', fontSize: 12}} />
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} />
+                  <YAxis />
                   <RechartsTooltip />
-                  <Bar dataKey="value" fill="#4169E1" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="value" fill="#3B82F6" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
