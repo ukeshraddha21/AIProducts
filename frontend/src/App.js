@@ -188,16 +188,18 @@ const Dashboard = () => {
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <Card className="border-l-4 border-l-red-500 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer">
+              <Card className="border-l-4 border-l-red-500 shadow-premium hover:shadow-premium-lg transition-all duration-500 bg-ivory-50 cursor-pointer hover:border-red-400 animate-slide-up" style={{animationDelay: '0.2s'}}>
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-base lg:text-lg font-semibold text-slate-700 flex items-center gap-2">
-                    <AlertTriangle className="w-5 h-5" />
+                  <CardTitle className="text-base lg:text-lg font-bold text-royal-800 flex items-center gap-3">
+                    <div className="p-2 bg-red-100 rounded-lg">
+                      <AlertTriangle className="w-5 h-5 text-red-700" />
+                    </div>
                     High Risk Tests
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl lg:text-4xl font-bold text-red-600 mb-2">{stats?.high_risk_count || 0}</div>
-                  <p className="text-sm text-slate-500">Critical defect risk if missed</p>
+                  <p className="text-sm text-royal-600 font-medium">Critical defect risk if missed</p>
                 </CardContent>
               </Card>
             </TooltipTrigger>
