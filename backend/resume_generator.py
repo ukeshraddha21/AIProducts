@@ -88,7 +88,7 @@ class ResumeGenerator:
         ))
         
         styles.add(ParagraphStyle(
-            name='BodyText',
+            name='CustomBodyText',
             parent=styles['Normal'],
             fontSize=10,
             textColor=DARK_TEXT,
