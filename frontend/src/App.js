@@ -1221,7 +1221,7 @@ const TestResults = ({ storyId }) => {
 // Enhanced Navigation Component
 const Navigation = () => {
   return (
-    <nav className="bg-white border-b border-slate-200 px-6 lg:px-8 py-4 shadow-sm">
+    <nav className="glass-nav px-6 lg:px-8 py-4 sticky top-0 z-50">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-8 lg:space-x-10">
           <Link to="/" className="flex items-center gap-3 text-xl lg:text-2xl font-bold text-slate-800 hover:text-indigo-600 transition-colors">
