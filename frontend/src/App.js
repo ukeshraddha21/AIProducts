@@ -147,7 +147,7 @@ const Dashboard = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl lg:text-4xl font-bold text-purple-600 mb-2">{stats?.total_test_titles || 0}</div>
-                  <p className="text-sm text-slate-500">AI-generated test titles</p>
+                  <p className="text-sm text-slate-500">AI-generated test cases</p>
                 </CardContent>
               </Card>
             </TooltipTrigger>
