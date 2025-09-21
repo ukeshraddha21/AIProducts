@@ -54,6 +54,34 @@ import { Toaster } from "./components/ui/sonner";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
+// Premium color scheme
+const colors = {
+  royal: {
+    50: '#f0f4ff',
+    100: '#e0e7ff', 
+    200: '#c7d2fe',
+    300: '#a5b4fc',
+    400: '#818cf8',
+    500: '#6366f1',
+    600: '#4169E1',
+    700: '#3730a3',
+    800: '#312e81',
+    900: '#1e1b4b',
+  },
+  ivory: {
+    50: '#FFFFF0',
+    100: '#FFFEF7',
+    200: '#FFFDF0', 
+    300: '#FFFBE8',
+    400: '#FFF9E1',
+    500: '#FFF8DC',
+    600: '#F5F5DC',
+    700: '#F0F0C8',
+    800: '#EBEBC0',
+    900: '#E6E6B8',
+  }
+};
+
 // Risk Assessment Dashboard Component
 const Dashboard = () => {
   const [stats, setStats] = useState(null);
