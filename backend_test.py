@@ -227,7 +227,7 @@ def main():
         ("Parse Story with AI", tester.test_parse_story),
         ("Generate Tests", tester.test_generate_tests),
         ("Get Story Tests", tester.test_get_story_tests),
-        ("Get All Tests", tester.test_all_tests),
+        ("Get All Tests", tester.test_get_all_tests),
         ("Dashboard Stats", tester.test_dashboard_stats),
         ("Coverage Stats", tester.test_coverage_stats),
     ]
