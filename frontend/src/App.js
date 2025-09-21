@@ -1021,7 +1021,7 @@ const TestResults = ({ storyId }) => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {sortedAndFilteredTitles.map((title) => (
+                  {sortedAndFilteredTitles.map((title, index) => (
                     <React.Fragment key={title.id}>
                       <TableRow className="hover:bg-slate-50">
                         <TableCell>
@@ -1036,6 +1036,9 @@ const TestResults = ({ storyId }) => {
                               <ChevronRight className="w-4 h-4" />
                             }
                           </Button>
+                        </TableCell>
+                        <TableCell className="text-center font-semibold text-slate-700">
+                          {index + 1}
                         </TableCell>
                         <TableCell className="font-medium">
                           <Badge variant="outline" className="whitespace-nowrap">
