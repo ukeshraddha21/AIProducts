@@ -179,7 +179,7 @@ class ResumeGenerator:
             category_name = f"<b>{skill_category['category']}:</b>"
             skill_names = [skill['name'] for skill in skill_category['skills']]
             skills_text = f"{category_name} {', '.join(skill_names)}"
-            story.append(Paragraph(skills_text, self.styles['BodyText']))
+            story.append(Paragraph(skills_text, self.styles['CustomBodyText']))
         
         story.append(Spacer(1, 12))
         
