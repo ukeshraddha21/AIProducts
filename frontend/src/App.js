@@ -690,6 +690,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
 
 // Enhanced Test Results View Component with Expandable Rows
 const TestResults = ({ storyId }) => {
+  const navigate = useNavigate();
   const [story, setStory] = useState(null);
   const [testTitles, setTestTitles] = useState([]);
   const [loading, setLoading] = useState(true);
