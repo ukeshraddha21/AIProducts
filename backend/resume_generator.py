@@ -161,15 +161,15 @@ class ResumeGenerator:
         for project in projects[:3]:  # Show top 3 projects
             project_title = f"<b>{project['title']}</b> - {project['category']}"
             story.append(Paragraph(project_title, self.styles['JobTitle']))
-            story.append(Paragraph(project['description'], self.styles['BodyText']))
+            story.append(Paragraph(project['description'], self.styles['CustomBodyText']))
             
             # Technologies
             tech_text = f"<i>Technologies:</i> {', '.join(project['technologies'])}"
-            story.append(Paragraph(tech_text, self.styles['BodyText']))
+            story.append(Paragraph(tech_text, self.styles['CustomBodyText']))
             
             # Impact
             impact_text = f"<i>Impact:</i> {project['impact']}"
-            story.append(Paragraph(impact_text, self.styles['BodyText']))
+            story.append(Paragraph(impact_text, self.styles['CustomBodyText']))
             story.append(Spacer(1, 8))
         
         # Skills Section
