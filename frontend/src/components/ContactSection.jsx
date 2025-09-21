@@ -242,10 +242,22 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold transform hover:scale-105 shadow-lg hover:shadow-xl"
+                disabled={isLoading}
+                className={`w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 px-6 rounded-2xl hover:from-blue-700 hover:to-blue-900 transition-all duration-300 flex items-center justify-center space-x-2 font-bold transform hover:scale-105 shadow-lg hover:shadow-xl ${
+                  isLoading ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
               >
-                <Send className="w-5 h-5" />
-                <span>Send Message</span>
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </form>
           </div>
