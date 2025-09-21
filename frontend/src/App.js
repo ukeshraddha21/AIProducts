@@ -824,6 +824,18 @@ const TestResults = ({ storyId }) => {
   return (
     <TooltipProvider>
       <div className="space-y-8 p-6 lg:p-8 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+        {/* Back Button */}
+        <div className="mb-6">
+          <Button 
+            onClick={() => navigate('/generator')} 
+            variant="outline" 
+            className="flex items-center gap-2 hover:bg-slate-50"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Back to Generator
+          </Button>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">{story?.title}</h1>
