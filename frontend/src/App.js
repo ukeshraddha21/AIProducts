@@ -445,22 +445,18 @@ const TestCaseGenerator = () => {
           </p>
           
           {/* User Story Format Guide */}
-          <Card className="max-w-3xl mx-auto mb-8 bg-royal-50 border border-royal-200 shadow-premium">
+          <Card className="max-w-2xl mx-auto mb-8 bg-blue-50 border-blue-200">
             <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <div className="p-2 bg-royal-100 rounded-lg">
-                  <Info className="w-5 h-5 text-royal-700" />
-                </div>
+              <div className="flex items-start gap-3">
+                <Info className="w-5 h-5 text-blue-600 mt-0.5" />
                 <div className="text-left">
-                  <h3 className="font-bold text-royal-900 mb-3 text-lg font-display">Recommended User Story Format</h3>
-                  <p className="text-royal-800 mb-4 font-medium">
-                    <strong>As a</strong> <span className="text-royal-600 font-semibold">[role]</span>, <strong>I want</strong> <span className="text-royal-600 font-semibold">[goal]</span> <strong>so that</strong> <span className="text-royal-600 font-semibold">[benefit]</span>
+                  <h3 className="font-semibold text-blue-900 mb-2">Recommended User Story Format</h3>
+                  <p className="text-blue-800 text-sm mb-2">
+                    <strong>As a</strong> [role], <strong>I want</strong> [goal] <strong>so that</strong> [benefit]
                   </p>
-                  <div className="bg-ivory-50 p-3 rounded-lg border border-ivory-300">
-                    <p className="text-royal-700 text-sm font-medium">
-                      <strong>Example:</strong> "As a user, I want to log into the system using my email and password so that I can access my personal dashboard"
-                    </p>
-                  </div>
+                  <p className="text-blue-700 text-xs">
+                    Example: "As a user, I want to log into the system using my email and password so that I can access my personal dashboard"
+                  </p>
                 </div>
               </div>
             </CardContent>
