@@ -83,8 +83,10 @@ class BackendTester:
                         )
                         return
                     
-                    # Extract text from first page to verify content
-                    first_page_text = pdf_reader.pages[0].extract_text()
+                    # Extract text from all pages to verify content
+                    full_text = ""
+                    for page in pdf_reader.pages:
+                        full_text += page.extract_text()
                     
                     # Check for key resume sections
                     required_sections = [
@@ -98,7 +100,7 @@ class BackendTester:
                     
                     missing_sections = []
                     for section in required_sections:
-                        if section not in first_page_text:
+                        if section not in full_text:
                             missing_sections.append(section)
                     
                     if missing_sections:
