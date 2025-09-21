@@ -75,7 +75,7 @@ class AIStoryTestGeneratorTester:
             "Create User Story",
             "POST",
             "stories",
-            200,  # Changed from 201 to 200 based on FastAPI default
+            200,
             data=story_data
         )
         
