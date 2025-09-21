@@ -274,7 +274,7 @@ async def download_resume():
         
         # Return PDF as streaming response
         return StreamingResponse(
-            io=pdf_buffer,
+            pdf_buffer,
             media_type="application/pdf",
             headers={
                 "Content-Disposition": "attachment; filename=Shraddha_Uke_Resume.pdf"
