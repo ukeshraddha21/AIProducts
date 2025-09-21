@@ -128,16 +128,14 @@ const Dashboard = () => {
 
   return (
     <TooltipProvider>
-      <div className="space-y-10 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen p-6 lg:p-8">
+      <div className="space-y-10 bg-gradient-to-br from-ivory-50 to-ivory-200 min-h-screen p-6 lg:p-8 animate-fade-in">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Target className="w-12 h-12 text-indigo-600" />
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">
-              Test Coverage Analytics
-            </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <BarChart3 className="w-12 h-12 lg:w-16 lg:h-16 text-royal-600" />
+            <h1 className="text-4xl lg:text-6xl font-bold text-royal-900 tracking-tight font-display">Test Coverage Analytics</h1>
           </div>
-          <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg lg:text-xl text-royal-700 max-w-4xl mx-auto leading-relaxed font-medium">
             AI-powered test case generation insights for development teams without dedicated QA resources
           </p>
         </div>
