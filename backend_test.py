@@ -269,8 +269,9 @@ class AIStoryTestGeneratorTester:
             print("❌ Skipped - No story ID available")
             return False, {}
         
-        # Test generating only specific categories
+        # Test generating only specific categories with correct request structure
         selective_data = {
+            "story_id": self.created_story_id,
             "categories": ["Security Tests", "API Tests"]
         }
         
