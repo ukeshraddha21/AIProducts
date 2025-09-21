@@ -1126,7 +1126,7 @@ const TestResults = ({ storyId }) => {
                       {/* Expandable Row Details */}
                       {expandedRows.has(title.id) && (
                         <TableRow className="bg-slate-50">
-                          <TableCell colSpan={7}>
+                          <TableCell colSpan={8}>
                             <div className="py-4 px-6 space-y-4">
                               <h4 className="font-semibold text-slate-800 mb-3">Test Case Details</h4>
                               
