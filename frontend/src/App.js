@@ -852,47 +852,81 @@ const TabularView = () => {
                 {sortedAndFilteredStories.map((story) => {
                   const priority = getPriority(story);
                   const complexity = getComplexity(story);
+                  const storyData = testData[story.id] || {};
+                  const overallStatus = getOverallStatus(story.id);
                   
                   return (
                     <TableRow key={story.id} className="hover:bg-slate-50">
                       <TableCell className="sticky left-0 bg-white z-10 border-r">
-                        <div className="space-y-2">
-                          <h4 className="font-semibold text-slate-800 text-sm leading-tight max-w-[180px]">
-                            {story.title}
-                          </h4>
-                          <p className="text-xs text-slate-600 leading-relaxed max-w-[180px]">
-                            {story.description.substring(0, 100)}...
-                          </p>
-                          <Badge variant={story.parsed ? "default" : "secondary"} className="text-xs">
-                            {story.parsed ? "Parsed" : "Raw"}
-                          </Badge>
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="font-semibold text-slate-800 text-sm leading-tight max-w-[220px]">
+                              {story.title}
+                            </h4>
+                            <p className="text-xs text-slate-600 leading-relaxed max-w-[220px] mt-1">
+                              {story.description.substring(0, 120)}...
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Badge variant={story.parsed ? "default" : "secondary"} className="text-xs">
+                              {story.parsed ? "Parsed" : "Raw"}
+                            </Badge>
+                            {story.parsed && (
+                              <Badge variant="outline" className="text-xs">
+                                {Math.round((story.confidence_score || 0) * 100)}% AI
+                              </Badge>
+                            )}
+                          </div>
                         </div>
                       </TableCell>
                       
                       {testTypes.map(type => {
                         const testInfo = getTestStatus(story.id, type);
                         return (
-                          <TableCell key={type} className="text-center p-4">
+                          <TableCell key={type} className="text-center p-3">
                             <div 
-                              className="flex flex-col items-center gap-2 cursor-pointer hover:bg-slate-100 p-2 rounded"
-                              title={testInfo.description}
+                              className="flex flex-col items-center gap-2 cursor-pointer hover:bg-slate-100 p-2 rounded transition-colors"
+                              title={`${testInfo.description} - Click for details`}
+                              onClick={() => testInfo.details && setShowTestDetails(testInfo.details)}
                             >
                               {getStatusIcon(testInfo.status)}
                               <Badge 
                                 variant="outline" 
-                                className={`text-xs ${
-                                  testInfo.status === 'passed' ? 'bg-emerald-100 text-emerald-800 border-emerald-200' :
-                                  testInfo.status === 'failed' ? 'bg-red-100 text-red-800 border-red-200' :
-                                  testInfo.status === 'pending' ? 'bg-amber-100 text-amber-800 border-amber-200' :
-                                  'bg-slate-100 text-slate-600 border-slate-200'
-                                }`}
+                                className={`text-xs ${getStatusBadgeColor(testInfo.status)}`}
                               >
                                 {testInfo.status === 'missing' ? 'NA' : testInfo.status}
                               </Badge>
+                              {testInfo.count > 1 && (
+                                <span className="text-xs text-slate-500">{testInfo.count} tests</span>
+                              )}
                             </div>
                           </TableCell>
                         );
                       })}
+                      
+                      <TableCell className="text-center">
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="font-semibold text-slate-800">
+                            {storyData.total_tests || 0}
+                          </span>
+                          <div className="text-xs text-slate-600">
+                            <span className="text-emerald-600">{storyData.passed_tests || 0}P</span> • 
+                            <span className="text-red-600 ml-1">{storyData.failed_tests || 0}F</span>
+                          </div>
+                        </div>
+                      </TableCell>
+                      
+                      <TableCell className="text-center">
+                        <div className="flex flex-col items-center gap-1">
+                          <span className="font-semibold text-slate-800">
+                            {Math.round(storyData.coverage_percentage || 0)}%
+                          </span>
+                          <Progress 
+                            value={storyData.coverage_percentage || 0} 
+                            className="h-1 w-16"
+                          />
+                        </div>
+                      </TableCell>
                       
                       <TableCell className="text-center">
                         <Badge className={`${getPriorityColor(priority)} font-medium`}>
@@ -904,6 +938,37 @@ const TabularView = () => {
                         <Badge className={`${getComplexityColor(complexity)} font-medium`}>
                           {complexity}
                         </Badge>
+                      </TableCell>
+                      
+                      <TableCell className="text-center">
+                        <div className="flex flex-col gap-1">
+                          {storyData.total_tests > 0 && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => executeTestsForStory(story.id)}
+                              className="text-xs px-2 py-1 h-6"
+                            >
+                              <Play className="w-3 h-3 mr-1" />
+                              Run
+                            </Button>
+                          )}
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => {
+                              const missingTypes = testTypes.filter(type => !storyData[type]);
+                              if (missingTypes.length > 0) {
+                                generateTestsForStory(story.id, missingTypes.slice(0, 2));
+                              }
+                            }}
+                            className="text-xs px-2 py-1 h-6"
+                            disabled={!story.parsed}
+                          >
+                            <Plus className="w-3 h-3 mr-1" />
+                            Gen
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   );
