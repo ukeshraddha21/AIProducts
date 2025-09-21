@@ -646,7 +646,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
                             </Button>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>View generated test cases with sorting and filtering options</p>
+                            <p>Test Cases with Risk Assessment</p>
                           </TooltipContent>
                         </Tooltip>
                       </div>
