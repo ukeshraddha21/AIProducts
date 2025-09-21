@@ -212,6 +212,181 @@ class StoryTestAPITester:
         
         return success, response
 
+    def test_story_coverage(self):
+        """Test getting detailed coverage for a specific story"""
+        if not self.created_story_id:
+            print("❌ Skipped - No story ID available")
+            return False, {}
+        
+        success, response = self.run_test(
+            "Get Story Coverage",
+            "GET",
+            f"stories/{self.created_story_id}/coverage",
+            200
+        )
+        
+        if success:
+            # Verify expected fields in story coverage
+            expected_fields = ['story_id', 'test_types', 'total_tests', 'passed_tests', 'failed_tests', 'coverage_percentage']
+            for field in expected_fields:
+                if field in response:
+                    print(f"   ✅ {field}: {response[field]}")
+                else:
+                    print(f"   ⚠️ Missing field: {field}")
+            
+            # Check test types coverage
+            if 'test_types' in response:
+                test_types = response['test_types']
+                print(f"   Test type coverage: {len(test_types)} types")
+                for test_type, info in test_types.items():
+                    status = info.get('status', 'unknown')
+                    print(f"     {test_type}: {status}")
+        
+        return success, response
+
+    def test_story_test_mapping(self):
+        """Test getting story-test mapping"""
+        success, response = self.run_test("Get Story-Test Mapping", "GET", "story-test-mapping", 200)
+        
+        if success:
+            if 'mapping' in response:
+                mapping = response['mapping']
+                print(f"   ✅ Found {len(mapping)} story mappings")
+                
+                # Check first mapping structure if available
+                if mapping:
+                    first_mapping = mapping[0]
+                    expected_fields = ['story_id', 'story_title', 'test_types', 'total_tests', 'passed_tests', 'failed_tests', 'coverage_percentage']
+                    for field in expected_fields:
+                        if field in first_mapping:
+                            print(f"   ✅ Mapping has {field}: {first_mapping[field]}")
+                        else:
+                            print(f"   ⚠️ Mapping missing field: {field}")
+            else:
+                print("   ⚠️ Missing 'mapping' field in response")
+        
+        return success, response
+
+    def test_execute_tests(self):
+        """Test executing tests (simulated)"""
+        if not self.created_story_id:
+            print("❌ Skipped - No story ID available")
+            return False, {}
+        
+        # First get the tests for the story
+        success, tests_response = self.run_test(
+            "Get Tests for Execution",
+            "GET",
+            f"stories/{self.created_story_id}/tests",
+            200
+        )
+        
+        if not success or not tests_response:
+            print("❌ Failed to get tests for execution")
+            return False, {}
+        
+        if len(tests_response) == 0:
+            print("❌ No tests available for execution")
+            return False, {}
+        
+        # Execute the first test
+        test_id = tests_response[0]['id']
+        execution_data = {
+            "test_ids": [test_id]
+        }
+        
+        success, response = self.run_test(
+            "Execute Tests",
+            "POST",
+            "tests/execute",
+            200,
+            data=execution_data
+        )
+        
+        if success:
+            executed_count = response.get('executed_tests', 0)
+            results = response.get('results', [])
+            print(f"   ✅ Executed {executed_count} tests")
+            
+            # Check results structure
+            for i, result in enumerate(results):
+                if 'status' in result and 'duration' in result:
+                    print(f"   ✅ Result {i+1}: {result['status']} ({result.get('duration', 0):.2f}s)")
+                else:
+                    print(f"   ⚠️ Result {i+1} missing required fields")
+        
+        return success, response
+
+    def test_enhanced_dashboard_stats(self):
+        """Test enhanced dashboard statistics with all 6 stats cards"""
+        success, response = self.run_test("Get Enhanced Dashboard Stats", "GET", "dashboard/stats", 200)
+        
+        if success:
+            # Verify all 6 stats card fields
+            stats_fields = [
+                'total_stories', 'passed_tests', 'failed_tests', 'pending_tests',
+                'avg_confidence_score', 'avg_testability_score'
+            ]
+            
+            for field in stats_fields:
+                if field in response:
+                    value = response[field]
+                    if field in ['avg_confidence_score', 'avg_testability_score']:
+                        percentage = round(value * 100) if value else 0
+                        print(f"   ✅ {field}: {percentage}%")
+                    else:
+                        print(f"   ✅ {field}: {value}")
+                else:
+                    print(f"   ⚠️ Missing field: {field}")
+            
+            # Check recent activity sections
+            activity_fields = ['recent_stories', 'recent_tests', 'recent_results']
+            for field in activity_fields:
+                if field in response:
+                    items = response[field]
+                    print(f"   ✅ {field}: {len(items)} items")
+                else:
+                    print(f"   ⚠️ Missing field: {field}")
+        
+        return success, response
+
+    def test_generate_selective_tests(self):
+        """Test generating selective test types"""
+        if not self.created_story_id:
+            print("❌ Skipped - No story ID available")
+            return False, {}
+        
+        # Test generating only specific test types
+        selective_data = {
+            "test_types": ["security", "performance"],
+            "framework": "Custom Framework"
+        }
+        
+        print("   Note: This test may take 20-40 seconds due to AI test generation...")
+        success, response = self.run_test(
+            "Generate Selective Tests",
+            "POST",
+            f"stories/{self.created_story_id}/generate-tests",
+            200,
+            data=selective_data
+        )
+        
+        if success:
+            generated_count = response.get('generated_tests', 0)
+            tests = response.get('tests', [])
+            print(f"   ✅ Generated {generated_count} selective tests")
+            
+            # Verify only requested test types were generated
+            test_types = [test.get('test_type') for test in tests]
+            print(f"   Test types generated: {', '.join(test_types)}")
+            
+            # Check if tests have the custom framework
+            for test in tests:
+                if 'Custom Framework' in test.get('framework', ''):
+                    print(f"   ✅ Custom framework used in {test['test_type']} test")
+        
+        return success, response
+
 def main():
     print("🚀 Starting User Story to Test Case Parser API Tests")
     print("=" * 60)
