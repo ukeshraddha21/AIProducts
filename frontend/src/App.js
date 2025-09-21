@@ -1023,7 +1023,7 @@ const TestResults = ({ storyId }) => {
                 <TableBody>
                   {sortedAndFilteredTitles.map((title, index) => (
                     <React.Fragment key={title.id}>
-                      <TableRow className="hover:bg-slate-50">
+                      <TableRow className="hover:glass-hover"
                         <TableCell>
                           <Button
                             variant="ghost"
