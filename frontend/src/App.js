@@ -582,33 +582,33 @@ As a user, I want to reset my password when I forget it so that I can regain acc
         )}
 
         {/* Stories List */}
-        <div className="max-w-6xl mx-auto space-y-6">
+        <div className="max-w-6xl mx-auto space-y-4">
           {stories.map((story, index) => (
-            <Card key={story.id} className="shadow-premium hover:shadow-premium-lg transition-all duration-500 bg-ivory-50 border border-ivory-300 hover:border-royal-300 group animate-slide-up" style={{animationDelay: `${index * 0.1}s`}}>
-              <CardContent className="p-8">
-                <div className="flex items-start gap-5">
+            <Card key={story.id} className="shadow-lg hover:shadow-xl transition-all duration-300 bg-white border-0 group">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
                   {/* Story Number */}
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-royal-600 to-royal-700 text-ivory-50 rounded-xl flex items-center justify-center font-bold text-lg shadow-lg">
+                    <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       {index + 1}
                     </div>
                   </div>
                   
                   {/* Story Content */}
                   <div className="flex-grow">
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                       <div className="flex-grow">
-                        <h3 className="text-xl lg:text-2xl font-bold text-royal-900 leading-tight mb-4 group-hover:text-royal-700 transition-colors font-display">
+                        <h3 className="text-lg lg:text-xl font-bold text-slate-800 leading-tight mb-3 group-hover:text-indigo-600 transition-colors">
                           {story.title}
                         </h3>
-                        <p className="text-base text-royal-700 leading-relaxed mb-4 font-medium">
+                        <p className="text-base text-slate-600 leading-relaxed mb-4">
                           {story.description}
                         </p>
                         
                         {generatingFor.has(story.id) && (
-                          <div className="bg-royal-50 p-4 rounded-xl border border-royal-200 mb-4 shadow-sm">
-                            <div className="flex items-center gap-3 text-royal-800 text-sm font-medium">
-                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-royal-600"></div>
+                          <div className="bg-blue-50 p-3 rounded-lg border border-blue-200 mb-4">
+                            <div className="flex items-center gap-2 text-blue-800 text-sm">
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
                               <span>AI is generating 60+ test cases across 6 categories...</span>
                             </div>
                           </div>
@@ -622,7 +622,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
                             <Button 
                               onClick={() => generateTestTitles(story.id)}
                               disabled={generatingFor.has(story.id)}
-                              className="flex items-center gap-2 bg-royal-600 hover:bg-royal-700 px-6 py-3 font-bold shadow-premium hover:shadow-premium-lg transition-all duration-300 rounded-xl"
+                              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
                             >
                               <TestTube className="w-4 h-4" />
                               {generatingFor.has(story.id) ? 'Generating...' : 'Generate Test Cases'}
@@ -638,7 +638,7 @@ As a user, I want to reset my password when I forget it so that I can regain acc
                             <Button 
                               variant="outline" 
                               onClick={() => window.location.href = `/test-results/${story.id}`}
-                              className="flex items-center gap-2 border-2 border-royal-600 text-royal-700 hover:bg-royal-50 px-6 py-3 font-bold shadow-premium hover:shadow-premium-lg transition-all duration-300 rounded-xl"
+                              className="flex items-center gap-2 hover:bg-slate-50"
                             >
                               <Eye className="w-4 h-4" />
                               View Results
