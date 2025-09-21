@@ -275,7 +275,7 @@ const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="shadow-lg bg-white border-l-4 border-l-amber-500">
+          <Card className="glass-card border-l-4 border-l-amber-500">
             <CardHeader>
               <CardTitle className="text-lg lg:text-xl font-bold text-slate-800 flex items-center gap-2">
                 <AlertCircle className="w-6 h-6 text-amber-600" />
