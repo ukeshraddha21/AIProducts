@@ -118,7 +118,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Card className="border-l-4 border-l-blue-500 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer">
+              <Card className="border-l-4 border-l-blue-500 glass-card glass-hover cursor-pointer">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-base lg:text-lg font-semibold text-slate-700 flex items-center gap-2">
                     <Users className="w-5 h-5" />
