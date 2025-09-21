@@ -963,6 +963,7 @@ const TestResults = ({ storyId }) => {
                 <TableHeader>
                   <TableRow className="bg-slate-50">
                     <TableHead className="w-12"></TableHead>
+                    <TableHead className="w-16 text-center font-bold text-slate-800">#</TableHead>
                     <TableHead 
                       className="font-bold text-slate-800 cursor-pointer hover:bg-slate-100"
                       onClick={() => handleSort('test_category')}
