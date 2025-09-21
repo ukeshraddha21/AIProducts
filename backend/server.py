@@ -37,6 +37,54 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class ContactFormData(BaseModel):
+    name: str
+    email: str
+    subject: str
+    message: str
+
+class PersonalInfo(BaseModel):
+    name: str
+    title: str
+    location: str
+    email: str
+    linkedin: str
+    careerVision: str
+
+class Experience(BaseModel):
+    company: str
+    position: str
+    duration: str
+    location: str
+    highlights: List[str]
+
+class Project(BaseModel):
+    title: str
+    category: str
+    description: str
+    technologies: List[str]
+    impact: str
+
+class Skill(BaseModel):
+    name: str
+
+class SkillCategory(BaseModel):
+    category: str
+    skills: List[Skill]
+
+class Certification(BaseModel):
+    name: str
+    issuer: str
+    description: str
+    date: str
+
+class ResumeData(BaseModel):
+    personalInfo: PersonalInfo
+    experience: List[Experience]
+    projects: List[Project]
+    skills: List[SkillCategory]
+    certifications: List[Certification]
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
