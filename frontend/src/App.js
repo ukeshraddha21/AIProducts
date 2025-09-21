@@ -158,7 +158,7 @@ const Dashboard = () => {
 
           <Tooltip>
             <TooltipTrigger asChild>
-              <Card className="border-l-4 border-l-red-500 glass-card glass-hover cursor-pointer">
+              <Card className="border-l-4 border-l-red-500 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-base lg:text-lg font-semibold text-slate-700 flex items-center gap-2">
                     <AlertTriangle className="w-5 h-5" />
