@@ -456,6 +456,16 @@ const TabularView = () => {
 
   const testTypes = ['unit', 'api', 'ui', 'security', 'performance', 'manual', 'database'];
 
+  const testTypeIcons = {
+    unit: Code,
+    api: Zap,
+    ui: Monitor,
+    security: Shield,
+    performance: BarChart3,
+    manual: ClipboardList,
+    database: Database
+  };
+
   // Create consistent priority/complexity mapping based on story ID hash
   const getPriority = (story) => {
     const priorities = ['High', 'Medium', 'Low'];
