@@ -319,6 +319,10 @@ async def get_contact_submissions():
     """Get all contact form submissions (for admin use)"""
     try:
         submissions = await db.contact_submissions.find().to_list(100)
+        # Convert ObjectId to string for JSON serialization
+        for submission in submissions:
+            if '_id' in submission:
+                submission['_id'] = str(submission['_id'])
         return submissions
     except Exception as e:
         logger.error(f"Error retrieving contact submissions: {str(e)}")
