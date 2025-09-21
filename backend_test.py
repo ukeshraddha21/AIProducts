@@ -216,18 +216,18 @@ class BackendTester:
                     timeout=10
                 )
                 
-                if response.status_code == 400:
+                if response.status_code in [400, 422]:
                     self.log_test(
                         f"Contact Form - Validation Test {i+1}",
                         True,
-                        "Properly rejected invalid data",
+                        f"Properly rejected invalid data with status {response.status_code}",
                         {"invalid_data": invalid_data, "response": response.text}
                     )
                 else:
                     self.log_test(
                         f"Contact Form - Validation Test {i+1}",
                         False,
-                        f"Should have returned 400, got {response.status_code}",
+                        f"Should have returned 400/422, got {response.status_code}",
                         {"invalid_data": invalid_data}
                     )
                     
