@@ -469,13 +469,15 @@ const TestCaseGenerator = () => {
 
   return (
     <TooltipProvider>
-      <div className="space-y-10 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen p-6 lg:p-8">
+      <div className="space-y-10 bg-gradient-to-br from-ivory-50 to-ivory-200 min-h-screen p-6 lg:p-8 animate-fade-in">
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Lightbulb className="w-12 h-12 text-indigo-600" />
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 tracking-tight">AI StoryTest Generator</h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="p-3 bg-royal-600 rounded-2xl shadow-premium">
+              <Lightbulb className="w-10 h-10 text-ivory-50" />
+            </div>
+            <h1 className="text-4xl lg:text-5xl font-bold text-royal-900 tracking-tight font-display">AI StoryTest Generator</h1>
           </div>
-          <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg lg:text-xl text-royal-700 max-w-4xl mx-auto leading-relaxed mb-8 font-medium">
             Transform user stories into comprehensive test case titles with AI-powered risk assessment
           </p>
           
