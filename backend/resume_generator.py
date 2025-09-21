@@ -136,7 +136,7 @@ class ResumeGenerator:
         
         # Career Vision Section
         story.append(Paragraph("CAREER VISION", self.styles['SectionHeader']))
-        story.append(Paragraph(personal_info['careerVision'], self.styles['BodyText']))
+        story.append(Paragraph(personal_info['careerVision'], self.styles['CustomBodyText']))
         story.append(Spacer(1, 12))
         
         # Professional Experience Section
