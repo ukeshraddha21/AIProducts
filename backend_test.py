@@ -300,27 +300,25 @@ class AIStoryTestGeneratorTester:
         return success, response
 
 def main():
-    print("🚀 Starting User Story to Test Case Parser API Tests")
+    print("🚀 Starting AI StoryTest Generator API Tests")
     print("=" * 60)
     
-    tester = StoryTestAPITester()
+    tester = AIStoryTestGeneratorTester()
     
-    # Test sequence - Enhanced with new features
+    # Test sequence - Comprehensive testing of all 5 core features
     tests = [
         ("Root Endpoint", tester.test_root_endpoint),
         ("Create Story", tester.test_create_story),
         ("Get All Stories", tester.test_get_stories),
         ("Get Story by ID", tester.test_get_story_by_id),
-        ("Parse Story with AI", tester.test_parse_story),
-        ("Generate Tests", tester.test_generate_tests),
-        ("Get Story Tests", tester.test_get_story_tests),
-        ("Get All Tests", tester.test_get_all_tests),
-        ("Enhanced Dashboard Stats", tester.test_enhanced_dashboard_stats),
-        ("Coverage Stats", tester.test_coverage_stats),
-        ("Story Coverage", tester.test_story_coverage),
-        ("Story-Test Mapping", tester.test_story_test_mapping),
-        ("Execute Tests", tester.test_execute_tests),
-        ("Generate Selective Tests", tester.test_generate_selective_tests),
+        ("Generate Test Case Titles", tester.test_generate_test_titles),
+        ("Get Story Test Titles", tester.test_get_story_test_titles),
+        ("Get All Test Titles", tester.test_get_all_test_titles),
+        ("Dashboard Stats", tester.test_dashboard_stats),
+        ("Risk Assessment Stats", tester.test_risk_assessment_stats),
+        ("Export CSV", tester.test_export_csv),
+        ("Export JSON", tester.test_export_json),
+        ("Selective Test Generation", tester.test_selective_test_generation),
     ]
     
     print(f"\n📋 Running {len(tests)} API tests...")
@@ -329,7 +327,7 @@ def main():
         try:
             test_func()
             # Small delay between tests
-            time.sleep(1)
+            time.sleep(2)
         except Exception as e:
             print(f"❌ Test '{test_name}' failed with exception: {str(e)}")
     
@@ -338,7 +336,7 @@ def main():
     print(f"📊 Test Results: {tester.tests_passed}/{tester.tests_run} tests passed")
     
     if tester.tests_passed == tester.tests_run:
-        print("🎉 All tests passed!")
+        print("🎉 All API tests passed!")
         return 0
     else:
         print(f"⚠️ {tester.tests_run - tester.tests_passed} tests failed")
