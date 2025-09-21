@@ -466,7 +466,7 @@ const TestCaseGenerator = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => setShowCreateForm(true)} 
-              className="px-6 lg:px-8 py-3 text-base lg:text-lg font-medium bg-indigo-600 hover:bg-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="px-6 lg:px-8 py-3 text-base lg:text-lg font-medium glass-button text-white"
             >
               <Plus className="w-5 h-5 mr-2" />
               Create Single Story
