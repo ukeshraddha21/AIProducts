@@ -611,16 +611,33 @@ const TabularView = () => {
     }
   };
 
+  const getStatusBadgeColor = (status) => {
+    switch (status) {
+      case 'passed': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+      case 'failed': return 'bg-red-100 text-red-800 border-red-200';
+      case 'pending': return 'bg-amber-100 text-amber-800 border-amber-200';
+      case 'missing': return 'bg-slate-100 text-slate-600 border-slate-200';
+      default: return 'bg-slate-100 text-slate-600 border-slate-200';
+    }
+  };
+
   const sortedAndFilteredStories = stories
     .filter(story => {
       const matchesSearch = story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            story.description.toLowerCase().includes(searchTerm.toLowerCase());
       const priority = getPriority(story);
       const complexity = getComplexity(story);
+      const overallStatus = getOverallStatus(story.id);
+      
       const matchesPriority = filterPriority === 'all' || priority === filterPriority;
       const matchesComplexity = filterComplexity === 'all' || complexity === filterComplexity;
+      const matchesStatus = filterStatus === 'all' || 
+        (filterStatus === 'passed' && overallStatus === 'all-passed') ||
+        (filterStatus === 'failed' && overallStatus === 'has-failures') ||
+        (filterStatus === 'pending' && overallStatus === 'in-progress') ||
+        (filterStatus === 'no-tests' && overallStatus === 'no-tests');
       
-      return matchesSearch && matchesPriority && matchesComplexity;
+      return matchesSearch && matchesPriority && matchesComplexity && matchesStatus;
     })
     .sort((a, b) => {
       let aValue = a[sortField];
@@ -634,6 +651,12 @@ const TabularView = () => {
         const complexityOrder = { 'Complex': 3, 'Moderate': 2, 'Simple': 1 };
         aValue = complexityOrder[getComplexity(a)];
         bValue = complexityOrder[getComplexity(b)];
+      } else if (sortField === 'coverage') {
+        aValue = testData[a.id]?.coverage_percentage || 0;
+        bValue = testData[b.id]?.coverage_percentage || 0;
+      } else if (sortField === 'tests') {
+        aValue = testData[a.id]?.total_tests || 0;
+        bValue = testData[b.id]?.total_tests || 0;
       }
       
       if (sortDirection === 'asc') {
