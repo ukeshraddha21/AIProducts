@@ -959,7 +959,7 @@ const TestResults = ({ storyId }) => {
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
-              <Table className="glass-table">
+              <Table>
                 <TableHeader>
                   <TableRow className="bg-slate-50">
                     <TableHead className="w-12"></TableHead>
