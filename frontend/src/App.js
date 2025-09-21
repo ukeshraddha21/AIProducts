@@ -435,7 +435,7 @@ const TestCaseGenerator = () => {
 
   return (
     <TooltipProvider>
-      <div className="space-y-10 bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen p-6 lg:p-8">
+      <div className="space-y-10 min-h-screen p-6 lg:p-8">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-6">
             <Lightbulb className="w-12 h-12 text-indigo-600" />
