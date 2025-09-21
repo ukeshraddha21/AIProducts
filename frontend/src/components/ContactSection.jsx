@@ -20,20 +20,46 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsLoading(true);
+    setError('');
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+      const response = await fetch(`${BACKEND_URL}/api/contact/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Failed to send message');
+      }
+      
+      const result = await response.json();
+      setIsSubmitted(true);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError(error.message || 'Failed to send message. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
