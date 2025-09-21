@@ -1232,14 +1232,14 @@ const Navigation = () => {
           <div className="flex space-x-6 lg:space-x-8">
             <Link 
               to="/" 
-              className="flex items-center gap-2 text-sm lg:text-base font-medium text-slate-600 hover:text-slate-900 transition-colors py-2 px-3 rounded-lg glass hover:glass-hover"
+              className="flex items-center gap-2 text-sm lg:text-base font-medium text-slate-600 hover:text-slate-900 transition-colors py-2 px-3 rounded-lg hover:bg-slate-50"
             >
               <Home className="w-4 h-4 lg:w-5 lg:h-5" />
               <span className="hidden sm:block">Dashboard</span>
             </Link>
             <Link 
               to="/generator" 
-              className="flex items-center gap-2 text-sm lg:text-base font-medium text-slate-600 hover:text-slate-900 transition-colors py-2 px-3 rounded-lg glass hover:glass-hover"
+              className="flex items-center gap-2 text-sm lg:text-base font-medium text-slate-600 hover:text-slate-900 transition-colors py-2 px-3 rounded-lg hover:bg-slate-50"
             >
               <TestTube className="w-4 h-4 lg:w-5 lg:h-5" />
               <span className="hidden sm:block">Generator</span>
